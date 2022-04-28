@@ -1,21 +1,69 @@
-body{
-    background-color: rebeccapurple;
+body {
+    background-color: #FFFFFF;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-image: url('/img/technology-g2c80b3974_1920.jpg');
 }
 
-.display-none{
-    display: none;
-}
-
-.login-container{
-    background-color: royalblue;
+.login-container {
+    background-color: #F7F7F7;
     min-width: 30%;
     min-height: 50vh;
+    /* CENTER THE FORM */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    /* ************ */
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
+    padding: 10px;
+}
+
+
+/* LoGIN_CONTAINER childs */
+
+.login-container>div {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 10px;
+}
+
+.group-login {
+    display: flex;
+}
+
+.group-register {
+    display: none;
+}
+
+.demo {
+    display: flex;
+}
+
+.login-container button {
+    height: 50px;
+    width: 60%;
+    margin: 5px;
+    border-radius: 10%;
+    cursor: pointer;
+    background-color: #5865F2;
+    color: white;
+    font-size: 1.5em;
+}
+
+.login-container input {
+    height: 50px;
+    width: 80%;
+    margin: 5px;
+    border-radius: 10%;
+    cursor: pointer;
+    background-color: #FFFFFF;
+}
+
+.red-outline {
+    outline: 1px solid red;
 }

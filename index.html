@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,25 +11,27 @@
 
 
 </head>
+
 <body>
     <div class="login-container">
         <div class="group-login">
-            <h2>Login with your Groip name</h2>
+            <h2>Login with your group name</h2>
             <input type="text" placeholder="Insert your group name" id="group-input">
-            <button >LOGIN</button>
+            <button onclick="login();">LOGIN</button>
+            <p>need an account? <a href="javascript:hideDiv('.group-login');showDiv('.group-register');">register</a></p>
 
-            <p>need an account? <a href="#">register</a></p>
         </div>
-        <div class="group-register">
+        <div class="group-register ">
             <h2>Make a new Group</h2>
             <input type="text" placeholder="Insert your group name" id="new-group-input">
-            <button>Register</button>
+            <button onclick="rigisterGroup()">Register</button>
         </div>
-        <div class="group-register">
+        <div class="demo">
             <h2>Or Login with Demo Account</h2>
-            <button>DEMO</button>
+            <button onclick="login('DEMO');">DEMO</button>
         </div>
-       
+
     </div>
 </body>
+
 </html>
