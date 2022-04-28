@@ -21,7 +21,7 @@ function login(Demo) {
     } else if (Demo) {
         console.log("Ist DEMO")
     } else {
-        //Make Outline Red 
+
         groupInput.classList.add("red-outline")
     }
 }
