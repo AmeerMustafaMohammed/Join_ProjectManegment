@@ -1,19 +1,13 @@
-// Register a new Group
-let allGroups = []
+setURL('http://ameer-mohammed.developerakademie.com/smallest_backend_ever/');
 
-setURL('http://ameer-mohammed.developerakademie.com/smallest_backend_ever');
-let users = [];
-async function testBackend(){
-    await downloadFromServer();
-   // users = JSON.parse(backend.getItem('users')) || [];
-   // backend.setItem('test' , 'hallo');
-    
-}
-testBackend()
+let allGroups = [];
+let test;
 
-if (loadArrayFromLS('allGroups')) {
-    allGroups = loadArrayFromLS('allGroups');
+async function init() {
+    await downloadFromServer()
+
 }
+
 
 
 function rigisterGroup() {
@@ -48,6 +42,23 @@ function showDiv(id) {
     divId.style.display = "flex"
 }
 
+
+
+/* BACKEND STORAGE */
+
+
+function saveInBackend(name, array) {
+    backend.setItem(name, array);
+}
+
+function loadFromBackend(name) {
+    return backend.getItem(name)
+}
+
+function deletFromBackend(name) {
+    backend.deleteItem(name);
+}
+/* LOCAL STORAGE */
 function saveArrayInLS(arrayInput) {
     let arrayAsString = JSON.stringify(arrayInput);
     localStorage.setItem("allGroups", arrayAsString)
