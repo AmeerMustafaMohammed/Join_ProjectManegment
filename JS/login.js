@@ -1,6 +1,16 @@
 // Register a new Group
 let allGroups = []
 
+setURL('http://ameer-mohammed.developerakademie.com/smallest_backend_ever');
+let users = [];
+async function testBackend(){
+    await downloadFromServer();
+   // users = JSON.parse(backend.getItem('users')) || [];
+   // backend.setItem('test' , 'hallo');
+    
+}
+testBackend()
+
 if (loadArrayFromLS('allGroups')) {
     allGroups = loadArrayFromLS('allGroups');
 }
