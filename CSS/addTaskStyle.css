@@ -1,24 +1,64 @@
+
+.title{
+    margin-left: 30%;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+.title h2{
+    margin: 0;
+}
+
+.title p{
+    margin: 0;
+}
 .add-task-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 70%;
-    height: 80vh;
+    width: 75%;
+    min-height: 85vh;
     margin: 5%;
-    background-color: rgb(70, 70, 218);
+    background-color: #ddd9f3;
     border-radius: 10px;
+    margin-left: 25%;
+    margin-top: 0;
 }
+
 .rows{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: antiquewhite;
-    margin: 5px;
-    height: 30%;
+    background-color: transparent;
+    margin: 10px;
+    
 }
 .columns{
-    background-color: rgba(0, 0, 0, 0.412);
+    background-color: transparent;
     height: 70%;
-    width: 40%;
+    width: 45%;
     padding: 2%;
+}
+
+/* ELEMENTE*/
+
+
+.add-task-container h3{
+    font-size: 2em;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.inputRect{
+height: 50px;
+width: 100%;
+}
+
+
+.form-butons{
+    margin: 20px 2px;
+}
+
+.form-butons button{
+   height: 50px;
+   width: fit-content;
+   font-size: 1.5em;
 }
