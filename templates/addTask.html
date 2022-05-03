@@ -6,13 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AddTasks</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="/CSS/addTaskStyle.css">
     <script src="/JS/addTask.js" defer></script>
+
+
 </head>
 
 <body>
     <div class="nav-bar">
-
+        <a href="addTask.html">ADD TASK</a>
+        <a href="#">BACKLOG</a>
+        <a href="#">BOARD</a>
+        <a href="#">TRASH</a>
+        <a href="#">HELP</a>
+        
     </div>
     <div class="title">
         <h2>Add Task</h2>
@@ -52,20 +65,19 @@
         <div class="form-row-three rows">
             <div class="third-row-child-two columns">
                 <h3>DESCRIPTION</h3>
-                <textarea name="" id="" cols="40" rows="10" class="description-box"></textarea>
+                <textarea name="" id="" cols="40" rows="8" class="description-box"></textarea>
             </div>
             <div class="third-row-child-two columns">
 
                 <h3>ASIGEND TO</h3>
-                <select name="URGENCY" id="" class="inputRect">
+                <select name="URGENCY" id="" class="inputRect ">
                     <option value="IT">HEIT</option>
                     <option value="IT">MEDIUM</option>
                     <option value="IT">LOW</option>
                 </select>
                 <div class="form-butons">
-
-                    <button>DELETE</button>
-                    <button>SAVE</button>
+                    <a href="#" id="cancel-link">CANCEL</a>
+                    <button>CREATE TASK</button>
                 </div>
             </div>
 
