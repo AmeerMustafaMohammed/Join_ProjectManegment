@@ -1,42 +1,42 @@
 
-console.log("LoginPage")
-
-let allTasks =[];
-
-
-
- function init() {
-    setTimeout(function(){
-        allTasks = loadArrayFromLS("tasks")
-        console.log(allTasks)
-    },1000)
+// makeing new group
+async function saveGr(){
+    let grName = document.getElementById("new-group-input").value
+    console.log(grName)
+    await database.ref('groups/' + grName).set({
+        name: grName
     
+    })
+    console.log("Added")
+    window.location.href = "/";
+
 }
 
 
-
-function rigisterGroup() {
-    console.log("I am here")
-    let newGroupName = document.getElementById('new-group-input').value;
-    allGroups.push(newGroupName);
-    saveInBackend("allGroups",allGroups)
-    saveArrayInLS("currentGroup",newGroupName)
-    window.location = "/templates/addTask.html"
+function callFromDb(groupInput){
+    let response = database.ref('groups/' + groupInput)
+   
+    response.on('value', function(snapshot){
+        let data = snapshot.val();
+        if(data){
+            saveArrayInLS("currentGroup",groupInput)
+            window.location = "/templates/addTask.html"
+        }
+        else{
+            console.log("No Found")
+        }
+    })
 }
 
 
 function login(Demo) {
     let groupInput = document.getElementById('group-input');
     if (!Demo && groupInput.value) {
-        for(let i =0; i<allGroups.length;i++){
-            if(groupInput.value == allGroups[i]){
-                window.location = "/templates/addTask.html"
-                saveArrayInLS("currentGroup",groupInput.value)
-            }
-        }
+        callFromDb(groupInput.value)   
     } else if (Demo) {
-        window.location = "/templates/addTask.html"
         saveArrayInLS("currentGroup","DEMO")
+        window.location = "/templates/addTask.html"
+       
     } else {
         groupInput.classList.add("red-outline")
     }
@@ -57,10 +57,11 @@ function showDiv(id) {
 
 
 
-function loadArrayFromLS(arrayInput) {
-    let arrayAsString = localStorage.getItem(arrayInput)
-    let myArray = JSON.parse(arrayAsString)
-    return myArray;
+
+/* LOCAL STORAGE */
+function saveArrayInLS(key,arrayInput) {
+    let arrayAsString = JSON.stringify(arrayInput);
+    localStorage.setItem(key, arrayAsString)
 }
 
 

@@ -1,0 +1,39 @@
+#backlog-container{
+    margin-left: 17%;
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+}
+
+
+.title {
+    margin-left: 20%;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+.backlog-title{
+    display: flex;
+    justify-content: space-between;
+    color: blue;
+}
+.backlog-content{
+    display: flex;
+    justify-content: space-between;
+}
+.user-info{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.user-name-email{
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start
+}
+.user-name-email p{
+   padding: 0;
+   margin: 0;
+   color: red;
+}

@@ -14,23 +14,12 @@ const firebaseConfig = {
   firebase.initializeApp(firebaseConfig)
 let database = firebase.database();
 
-function saveGr(){
-    let grName = document.getElementById("new-group-input").value
-    console.log(grName)
-    database.ref('users/' + grName).set({
-        name: grName
-    
-    })
-    console.log("Added")
+
+
+function loadArrayFromLS(arrayInput) {
+    let arrayAsString = localStorage.getItem(arrayInput)
+    let myArray = JSON.parse(arrayAsString)
+    return myArray;
 }
-
-
-/* LOCAL STORAGE */
-function saveArrayInLS(key,arrayInput) {
-    let arrayAsString = JSON.stringify(arrayInput);
-    localStorage.setItem(key, arrayAsString)
-}
-
-
 
 
