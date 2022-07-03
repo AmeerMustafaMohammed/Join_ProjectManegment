@@ -8,7 +8,7 @@ async function saveGr(){
     
     })
     console.log("Added")
-    window.location.href = "/";
+    window.location = "./index.html";
 
 }
 
@@ -20,7 +20,7 @@ function callFromDb(groupInput){
         let data = snapshot.val();
         if(data){
             saveArrayInLS("currentGroup",groupInput)
-            window.location = "/templates/addTask.html"
+            window.location = "./templates/addTask.html"
         }
         else{
             console.log("No Found")
@@ -35,7 +35,7 @@ function login(Demo) {
         callFromDb(groupInput.value)   
     } else if (Demo) {
         saveArrayInLS("currentGroup","DEMO")
-        window.location = "/templates/addTask.html"
+        window.location = "./templates/addTask.html"
        
     } else {
         groupInput.classList.add("red-outline")

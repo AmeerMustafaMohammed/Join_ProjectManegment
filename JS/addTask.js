@@ -31,6 +31,22 @@ function showGrouponScreen(){
 
 
 
+ async function addUser(){
+
+    let randomNr = Math.floor(Math.random() * 10) + Date.now() ; 
+    
+  
+   
+    let userName = document.getElementById("user-name").value;
+    if(userName){
+            
+    database.ref('groups/' + currentGroup +'/users/' +  randomNr ).set({
+        userName:userName,
+        useremail:'ex@web.de'
+    })
+            console.log("Neu user Added")
+    }  
+}
 
 
 

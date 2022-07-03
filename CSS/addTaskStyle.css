@@ -21,7 +21,7 @@
     margin: 20px;
     text-decoration: none;
     font-weight: normal;
-    color: white;
+    color: #ffffff;
 }
 
 .title {
@@ -66,7 +66,17 @@
     padding: 2%;
 }
 
-
+.user-selection-icon{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.user-selection-icon img {
+    margin: 10px;
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+}
 /* ELEMENTE*/
 
 .add-task-container h3 {
