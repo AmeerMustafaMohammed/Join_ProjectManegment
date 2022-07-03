@@ -1,16 +1,16 @@
-setURL('http://ameer-mohammed.developerakademie.com/smallest_backend_ever/');
 
-let allGroups = [];
-let test;
+console.log("LoginPage")
 
-async function init() {
-    await downloadFromServer()
+let allTasks =[];
 
-    if(loadFromBackend("allGroups")){
-        allGroups = loadFromBackend("allGroups");
-    }
-   
 
+
+ function init() {
+    setTimeout(function(){
+        allTasks = loadArrayFromLS("tasks")
+        console.log(allTasks)
+    },1000)
+    
 }
 
 
@@ -56,28 +56,13 @@ function showDiv(id) {
 
 
 
-/* BACKEND STORAGE */
-
-
-function saveInBackend(name, array) {
-    backend.setItem(name, array);
-}
-
-function loadFromBackend(name) {
-    return backend.getItem(name)
-}
-
-function deletFromBackend(name) {
-    backend.deleteItem(name);
-}
-/* LOCAL STORAGE */
-function saveArrayInLS(key,arrayInput) {
-    let arrayAsString = JSON.stringify(arrayInput);
-    localStorage.setItem(key, arrayAsString)
-}
 
 function loadArrayFromLS(arrayInput) {
     let arrayAsString = localStorage.getItem(arrayInput)
     let myArray = JSON.parse(arrayAsString)
     return myArray;
 }
+
+
+
+

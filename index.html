@@ -8,13 +8,12 @@
     <title>JOIN</title>
     <link rel="stylesheet" href="./CSS/login.css">
 
-    <script src="./JS/login.js" defer></script>
-    <script src="/mini_backend.js"></script>
+    
 
 
 </head>
 
-<body onload="init()">
+<body>
     <div class="login-container">
         <div class="group-login">
             <h2>Login with your group name</h2>
@@ -26,14 +25,24 @@
         <div class="group-register ">
             <h2>Make a new Group</h2>
             <input type="text" placeholder="Insert your group name" id="new-group-input">
-            <button onclick="rigisterGroup()">Register</button>
+            <button onclick="saveGr()">Register</button>
         </div>
         <div class="demo">
             <h2>Or Login with Demo Account</h2>
             <button onclick="login('DEMO');">DEMO</button>
+            <button id="testButton">Test</button>
         </div>
 
     </div>
+
+
+    
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+<script src="/databaseFire.js"></script>
+<script src="./JS/login.js" defer></script>
 </body>
 
 </html>
+
+
