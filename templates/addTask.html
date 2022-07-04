@@ -52,6 +52,7 @@
                     <option value="IT">IT</option>
                     <option value="IT">IT</option>
                 </select>
+                <button onclick="showDiv('add-category-overlay')">Add Category</button>
             </div>
             <div class="second-row-child-two columns">
                 <h3>URGENCY</h3>
@@ -75,7 +76,7 @@
                     <select name="" id="asigento" class="inputRect ">
                         <option value="anonymous">Anonymous</option>
                     </select>
-                    <img src="/img/icons8-plus.png" alt="" onclick="showDiv('add-user-overlay')">
+                    <img src="/img/icon plus.png" alt="" onclick="showDiv('add-user-overlay')">
                 </div>
                 
                
@@ -90,9 +91,18 @@
     </div>
 
     <!-- OVERLAYS -->
-    <div id="add-user-overlay">
-        <input type="text" placeholder="Add a neu user!" id="user-name">
-        <button onclick="addUser()">Add</button>
+    <div id="add-user-overlay" class="display-none">
+        <div class="add-user-container">
+            <input type="text" placeholder="Add a neu user!" id="user-name">
+            <button onclick="addUser()">Add</button>
+        </div>
+    </div>
+     
+    <div id="add-category-overlay" class="display-none">
+        <div class="add-category-container">
+            <input type="text" placeholder="Add a neu Category!" id="user-name">
+            <button onclick="addCategory()">Add</button>
+        </div>
     </div>
      
       

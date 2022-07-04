@@ -1,4 +1,19 @@
-console.log("Added Task page JS")
+
+
+/* SHOW AND HIDE OVERLAYS */
+document.getElementById("add-user-overlay").addEventListener('click', e => {
+    if(e.target.className !== 'add-user-container'){
+        hideDiv("add-user-overlay")
+    }
+ 
+})
+document.getElementById("add-category-overlay").addEventListener('click', e => {
+    if(e.target.className !== 'add-category-container'){
+        hideDiv("add-category-overlay")
+    }
+ 
+})
+
 
 let currentGroup = loadArrayFromLS('currentGroup');
 console.log(currentGroup)
@@ -48,7 +63,11 @@ function showGrouponScreen(){
     }  
 }
 
+ function addCategory(){
+    // ::TODO
 
+console.log("TODO")
+ }
 
 
 /* 

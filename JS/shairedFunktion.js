@@ -1,10 +1,11 @@
 
 function hideDiv(id) {
-    let divId = document.querySelector(id)
-    divId.style.display = "none"
+    let divId = document.getElementById(id)
+    divId.classList.add('display-none')
+    
 }
 
 function showDiv(id) {
-    let divId = document.querySelector(id);
-    divId.style.display = "flex"
+    let divId = document.getElementById(id)
+    divId.classList.remove('display-none')
 }
