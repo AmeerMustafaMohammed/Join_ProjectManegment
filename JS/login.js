@@ -38,7 +38,7 @@ function login(Demo) {
         window.location = "./templates/addTask.html"
        
     } else {
-        groupInput.classList.add("red-outline")
+        makeOutlineRed('group-input') 
     }
 }
 

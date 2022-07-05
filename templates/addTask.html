@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     
+    <link rel="stylesheet" href="../CSS/shared-style.css">
     <link rel="stylesheet" href="../CSS/addTaskStyle.css">
    
 
@@ -28,7 +29,7 @@
         <a href="#">HELP</a>
         
     </div>
-    <div class="title">
+    <div class="title" >
         <h2>Add Task</h2>
         <p>Learning Manegment System Project</p>
     </div>
@@ -91,16 +92,16 @@
     </div>
 
     <!-- OVERLAYS -->
-    <div id="add-user-overlay" class="display-none">
+    <div id="add-user-overlay" class="display-none" name="overlay-background">
         <div class="add-user-container">
             <input type="text" placeholder="Add a neu user!" id="user-name">
             <button onclick="addUser()">Add</button>
         </div>
     </div>
      
-    <div id="add-category-overlay" class="display-none">
+    <div id="add-category-overlay" class="display-none" name="overlay-background">
         <div class="add-category-container">
-            <input type="text" placeholder="Add a neu Category!" id="user-name">
+            <input type="text" placeholder="Add a neu Category!" id="new-catrgory">
             <button onclick="addCategory()">Add</button>
         </div>
     </div>
