@@ -1,3 +1,4 @@
+/* NAVIGATION */
 * {
     font-family: 'PT Sans';
     font-weight: bold;
@@ -23,7 +24,7 @@
     font-weight: normal;
     color: #ffffff;
 }
-
+/* PAGE TITLE */
 .title {
     margin-left: 30%;
     margin-bottom: 25px;
@@ -38,6 +39,7 @@
     margin: 0;
 }
 
+/* FORM */
 .add-task-container {
     display: flex;
     flex-direction: column;
@@ -49,6 +51,13 @@
     border-radius: 10px;
     margin-left: 22%;
     margin-top: 0;
+}
+
+
+.add-task-container h3 {
+    font-size: 2em;
+    margin-top: 0;
+    margin-bottom: 10px;
 }
 
 .rows {
@@ -66,68 +75,34 @@
     padding: 2%;
 }
 
-.user-selection-icon{
+
+.inputRect {
+    height: 50px;
+    width: 100%;
+}
+
+.user-selection{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.user-selection-icon img {
+.user-selection img {
     margin: 10px;
     height: 40px;
     width: 40px;
     object-fit: cover;
 }
 
-/* OVERLAYS */
 
-#add-user-overlay{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(0, 0, 0,0.3);
-
-}
-.add-user-container,
-.add-category-container{
- background-color: #1E3190;
- min-height: 30%;
- min-width: 30%;
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: space-evenly;
- border-radius: 10px;
- z-index: 100;
+#add-category-link{
+text-decoration: none;
+ margin-left: 0.5em;
+font-size: 1.2em;
+cursor: pointer;
+color: #1E3190;
+ 
 }
 
-#add-category-overlay{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(0, 0, 0,0.3);
-}
-/* ELEMENTE*/
-
-.add-task-container h3 {
-    font-size: 2em;
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
-.inputRect {
-    height: 50px;
-    width: 100%;
-}
 
 .form-butons {
     margin: 50px 2px;
@@ -153,6 +128,8 @@
     font-size: 1.2em;
 }
 
+
+/* change icons of selection and calender */
 select {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -163,16 +140,57 @@ select {
     background-repeat: no-repeat;
 }
 
-/* My Classes */
-.display-none {
-    display: none !important;
-}
-/* change icons */
 
 ::-webkit-calendar-picker-indicator {
     background-image: url('/img/icons8-calendar-150.png');
     font-size: 3em;
 }
+/* OVERLAYS */
+
+#add-user-overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 0,0.3);
+
+}
+
+#add-category-overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 0,0.3);
+}
+
+.add-user-container,
+.add-category-container{
+ background-color: #1E3190;
+ min-height: 30%;
+ min-width: 30%;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: space-evenly;
+ border-radius: 10px;
+ z-index: 100;
+}
+
+
+/* My Classes */
+.display-none {
+    display: none !important;
+}
+
 
 @media screen and (max-height: 700px) {
     .title {

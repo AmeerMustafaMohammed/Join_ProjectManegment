@@ -2,14 +2,61 @@
 
 let currentGroup = loadArrayFromLS('currentGroup');
 console.log(currentGroup)
-showGrName()
+
+
+function init(){
+    showGrName()
+    showCategoris()
+    showUsers()
+}
 
 // showing current gruop name on the Navigation
 function showGrName(){
     document.getElementById("gr-name").innerHTML = `angemeldet as ${currentGroup}` 
 }
 
+// showing categorys in form
 
+
+
+async function showCategoris(){
+    try{
+        let response = await getGroupDataFromDB()
+        let categories = Object.values(response.category)
+        console.log(categories)
+        let categorySelect = document.getElementById("category")
+            categorySelect.innerHTML=""
+        for(let i=0;i<categories.length;i++){
+            categorySelect.innerHTML +=`
+            <option value="newCat">${categories[i]["category_name"]}</option>
+            `;
+        }
+    }catch(error){
+        console.log(error)
+    }
+}
+async function showUsers(){
+    try{
+        let response = await getGroupDataFromDB()
+        let users = Object.values(response.users) 
+        let userSelection = document.getElementById("asigento")
+        userSelection.innerHTML =""
+        for(let i=0;i<users.length;i++){
+            userSelection.innerHTML +=`
+            <option value="newCat">${users[i]["userName"]}</option>
+            `;
+        }
+       
+    }catch(error){
+        console.log(error)
+    }
+}
+
+
+
+// showing members in form
+
+  //::TODO
 // adding neu Task to the Database
 
 function getTaskAttributs(){
@@ -63,7 +110,7 @@ if(allAtributs){
         userName:userName.value,
         useremail:'ex@web.de'
     })
-            console.log("Neu user Added")
+    showUsers()
     }  
     else{
         makeOutlineRed(userName)
@@ -78,6 +125,7 @@ if(allAtributs){
         category_name:neuCategory.value
     })
     console.log("Neu Category Added")
+    showCategoris()
     }  
     else{
         makeOutlineRed(neuCategory)

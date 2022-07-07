@@ -4,8 +4,8 @@ async function saveGr(){
     let grName = document.getElementById("new-group-input").value
     console.log(grName)
     await database.ref('groups/' + grName).set({
-        name: grName
-    
+        grName:grName,
+
     })
     console.log("Added")
     window.location = "./index.html";

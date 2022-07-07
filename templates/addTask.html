@@ -19,7 +19,7 @@
 
 </head>
 
-<body>
+<body onload="init()">
     <div class="nav-bar">
         <h3 id="gr-name">Group Name</h3>
         <a href="./addTask.html">ADD TASK</a>
@@ -29,6 +29,8 @@
         <a href="#">HELP</a>
         
     </div>
+
+    
     <div class="title" >
         <h2>Add Task</h2>
         <p>Learning Manegment System Project</p>
@@ -49,11 +51,11 @@
             <div class="second-row-child-two columns">
                 <h3>CATEGORY</h3>
                 <select name="category" id="category" class="inputRect"> 
-                    <option value="IT">IT</option>
-                    <option value="IT">IT</option>
-                    <option value="IT">IT</option>
+                    <option value="Cleaning">Cleaning</option>
+                    <option value="Shopping">Shopping </option>
+                    <option value="Cooking">Cooking</option>
                 </select>
-                <button onclick="showDiv('add-category-overlay')">Add Category</button>
+                <p onclick="showDiv('add-category-overlay')" id="add-category-link">Add neu category?</p>
             </div>
             <div class="second-row-child-two columns">
                 <h3>URGENCY</h3>
@@ -73,7 +75,7 @@
             <div class="third-row-child-two columns">
 
                 <h3>ASIGEND TO</h3>
-                <div class="user-selection-icon">
+                <div class="user-selection">
                     <select name="" id="asigento" class="inputRect ">
                         <option value="anonymous">Anonymous</option>
                     </select>
@@ -106,6 +108,7 @@
         </div>
     </div>
      
+    
       
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
