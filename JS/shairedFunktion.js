@@ -1,21 +1,4 @@
 
-function getGroupDataFromDB(){
-    return new Promise((res,rej) => {
-        try {
-            let response = database.ref('groups/' + currentGroup )
-   
-             response.on('value', function(snapshot){
-                 let data = snapshot.val();  
-                  let lastData =   Object.values(data)        
-                   res(data)        
-             })
-            }
-        catch(error){
-            rej(error)
-        }
-    })
-}
-
 
 
 function hideDiv(id) {
@@ -38,3 +21,18 @@ function  removeRedOutline(id){
     let targetedId =  document.getElementById(id)
     targetedId.classList.remove("red-outline")
 }
+
+
+// showing current gruop name on the Navigation
+let currentGroup = loadArrayFromLS('currentGroup');
+function showGrName(){
+    document.getElementById("gr-name").innerHTML = `angemeldet as ${currentGroup}` 
+}
+
+
+
+function changeStage(dragged,targetedContainer){
+    database.ref('groups/' + currentGroup +'/tasks/' +  dragged ).update({
+        stage:targetedContainer,
+    })
+ }

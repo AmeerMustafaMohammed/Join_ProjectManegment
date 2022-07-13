@@ -1,19 +1,11 @@
 
-
-let currentGroup = loadArrayFromLS('currentGroup');
-console.log(currentGroup)
-
-
 function init(){
     showGrName()
     showCategoris()
     showUsers()
 }
 
-// showing current gruop name on the Navigation
-function showGrName(){
-    document.getElementById("gr-name").innerHTML = `angemeldet as ${currentGroup}` 
-}
+
 
 // showing categorys in form
 
@@ -86,14 +78,17 @@ function getDivbyId(id){
 // adding neu Task to the Database
 function saveTaskInDB(){
 let allAtributs =   getTaskAttributs()
+let randomId = idGenerator()
 if(allAtributs){
-    database.ref('groups/' + currentGroup +'/tasks/' +  idGenerator()).set({
+    database.ref('groups/' + currentGroup +'/tasks/' +  randomId).set({
+        id:randomId,
         title: allAtributs.title,
         date: allAtributs.date,
         category: allAtributs.category,
         urgency: allAtributs.urgency,
         description: allAtributs.description,
-        asigento: allAtributs.asigento
+        asigento: allAtributs.asigento,
+        stage:"todo"
     
     })
     console.log("Added")

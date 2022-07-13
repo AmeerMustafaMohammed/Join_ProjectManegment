@@ -2,9 +2,13 @@
     margin-left: 17%;
     display: flex;
     flex-direction: column;
-    background-color: antiquewhite;
+   
 }
 
+#backlog-tasks{
+    overflow-y: scroll;
+   height: 75vh;
+}
 
 .title {
     margin-left: 20%;
@@ -16,13 +20,31 @@
     justify-content: space-between;
     color: blue;
 }
+.backlog-title >div{
+    display: flex;
+    justify-content: center;
+}
 .backlog-content{
+    display: flex;
+    flex-direction: column;
+    background-color: #F4F3FB;
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    
+  
+}
+.backlog-row-firs-child{
     display: flex;
     justify-content: space-between;
 }
+
+.customBox{
+    width: 30% !important;
+ 
+}
 .user-info{
     display: flex;
-    justify-content: space-around;
     align-items: center;
 }
 .user-name-email{
@@ -36,4 +58,12 @@
    padding: 0;
    margin: 0;
    color: red;
+}
+.category{
+    display: flex;
+    justify-content: center;
+}
+.ditails{
+    display: flex;
+    justify-content: center;
 }

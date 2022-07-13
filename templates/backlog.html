@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="../CSS/addTaskStyle.css">
+    <link rel="stylesheet" href="../CSS/shared-style.css">
     <link rel="stylesheet" href="../CSS/backlog-style.css">
 
    
@@ -25,8 +26,8 @@
         <h3 id="gr-name">Group Name</h3>
         <a href="./addTask.html">ADD TASK</a>
         <a href="./backlog.html">BACKLOG</a>
-        <a href="#">BOARD</a>
-        <a href="#">TRASH</a>
+        <a href="./board.html">BOARD</a>
+        <a href="./trash.html">TRASH</a>
         <a href="#">HELP</a>
     </div>
     <div class="title">
@@ -35,19 +36,28 @@
     </div>
     <div id="backlog-container">
         <div class="backlog-title">
-            <h3>ASSIGEND TO</h3>
-            <h3>CATEGORY</h3>
-            <h3>DETAILS</h3>
-        </div>
+            <div class="customBox">
+                <h3 >ASSIGEND TO</h3>
+            </div>
+          <div class="customBox">
+            <h3 >CATEGORY</h3>
+          </div>
+          <div class="customBox">
+            <h3 >DETAILS</h3>
+          </div>
+     </div>
       
-        </div>
+     <div class="backlog-tasks" id="backlog-tasks">
+
+     </div>
 
     </div>
       
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
 <script src="../databaseFire.js"></script>
-    <script src="../JS/backlog.js" defer></script>
+<script src="/JS/shairedFunktion.js"></script>
+<script src="../JS/backlog.js" defer></script>
 </body>
 
 </html>

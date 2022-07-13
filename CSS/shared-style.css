@@ -1,4 +1,33 @@
+* {
+    font-family: 'PT Sans';
+    font-weight: bold;
+}
+
 
 .red-outline {
     outline: 1px solid red;
+}
+
+.nav-bar {
+    width: 15%;
+    min-height: 100%;
+    background-color: #1E3190;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#gr-name{
+    color: #ffffff;
+}
+.nav-bar a {
+    font-size: 2em;
+    margin: 20px;
+    text-decoration: none;
+    font-weight: normal;
+    color: #ffffff;
 }
