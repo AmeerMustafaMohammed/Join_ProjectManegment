@@ -88,7 +88,7 @@ if(allAtributs){
         urgency: allAtributs.urgency,
         description: allAtributs.description,
         asigento: allAtributs.asigento,
-        stage:"todo"
+        stage:"backlog"
     
     })
     console.log("Added")

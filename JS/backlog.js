@@ -1,38 +1,26 @@
 showGrName()
-callDataFromDB()
+showOnScreen()
 
-async function callDataFromDB(){
-    let response = database.ref('groups/' + currentGroup + '/tasks')
-   
-   await response.on('value', function(snapshot){
-        let data = snapshot.val();
-        if(data){
-          console.log(Object.values(data))
-          showOnScreen(Object.values(data))
-        }
-        else{
-            console.log("No Found")
-        }
-    })
-   
-
-}
-
-
-function showOnScreen(data){
+async function showOnScreen(){
    
     let backlogTasks = document.getElementById("backlog-tasks")
-   
+    backlogTasks.innerHTML =""
+    let response = await getGroupDataFromDB()
+    let data = Object.values(response.tasks)
     for(let i=(data.length -1);i>=0;i--){
-        let newDiv = document.createElement("div")
-        newDiv.classList.add('backlog-content')
-        newDiv.innerHTML = genarateBacklogHtml(data[i]["category"],data[i]["description"])
-        backlogTasks.appendChild(newDiv)
+        if(data[i]["stage"] == "backlog"){
+            let newDiv = document.createElement("div")
+            newDiv.classList.add('backlog-content')
+            newDiv.innerHTML = genarateBacklogHtml(data[i]["category"],data[i]["description"],data[i]["id"])
+            backlogTasks.appendChild(newDiv)
+        }
+      
     }
 }
 
 
-function genarateBacklogHtml(category,description){
+function genarateBacklogHtml(category,description,id){
+    
     let htmlText = `            
         <div class="backlog-row-firs-child" >
         <div class="user-info customBox">
@@ -47,8 +35,8 @@ function genarateBacklogHtml(category,description){
 
         </div>
         <div class="buttons">
-            <button>PIN</button>
-            <button>EDIT</button>
+            <button onclick="pinTask(${id})">PIN</button>
+            <button onclick="editTask(${id})">EDIT</button>
         </div>
         
 
@@ -58,3 +46,14 @@ return htmlText
 
 }
 
+function editTask(id){
+   
+    console.log("editTask")
+    
+}
+
+
+function pinTask(id){
+    changeStage(id,"todo")
+    showOnScreen()
+}

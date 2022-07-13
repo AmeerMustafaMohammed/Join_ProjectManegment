@@ -33,7 +33,7 @@ function showTrashOnScreen(task){
 }
 
 function restoreTask(id){
-    changeStage(id,"todo")
+    changeStage(id,"backlog")
     showTrash()
 }
 
