@@ -10,20 +10,22 @@
 
 .nav-bar {
     width: 15%;
-    min-height: 100%;
-    background-color: #1E3190;
+    height: 100vh;
+    background: linear-gradient(135deg, #140194, #b1a8cd);
     position: absolute;
     left: 0;
     top: 0;
+    bottom: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#gr-name{
+#gr-name {
     color: #ffffff;
 }
+
 .nav-bar a {
     font-size: 2em;
     margin: 20px;

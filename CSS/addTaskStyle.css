@@ -1,7 +1,17 @@
+* {
+    font-family: 'PT Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
 /* PAGE TITLE */
+body {
+
+    background-color: #e3e3e3;
+}
+
 .title {
-    margin-left: 30%;
+    margin-left: 20%;
     margin-bottom: 25px;
     margin-top: 25px;
 }
@@ -15,94 +25,79 @@
 }
 
 /* FORM */
-.add-task-container {
+.form-container {
+    background-color: #F4F3FB;
+    margin-left: 20%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    width: 75%;
-    height: 80vh;
-    margin: 5%;
-    background-color: #F4F3FA;
+    max-width: 700px;
+    height: fit-content;
     border-radius: 10px;
-    margin-left: 22%;
-    margin-top: 0;
-}
-
-
-.add-task-container h3 {
-    font-size: 2em;
-    margin-top: 0;
-    margin-bottom: 10px;
+    padding: 10px 40px;
+    margin-top: 10px;
 }
 
 .rows {
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: transparent;
-    margin: 10px;
-}
-
-.columns {
-    background-color: transparent;
-    height: 70%;
-    width: 45%;
-    padding: 2%;
-}
-
-
-.inputRect {
-    height: 50px;
-    width: 100%;
-}
-
-.user-selection{
-    display: flex;
     justify-content: space-between;
     align-items: center;
-}
-.user-selection img {
-    margin: 10px;
-    height: 40px;
-    width: 40px;
-    object-fit: cover;
+    margin-top: 10px;
+
 }
 
-
-#add-category-link{
-text-decoration: none;
- margin-left: 0.5em;
-font-size: 1.2em;
-cursor: pointer;
-color: #1E3190;
- 
-}
-
-
-.form-butons {
-    margin: 50px 2px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.form-butons button {
-    height: 50px;
-    padding: 10px;
-    width: fit-content;
-    font-size: 1em;
-    background-color: #1F318E;
-    color: white;
+.form-container input {
+    height: 60px;
+    width: 300px;
     border-radius: 10px;
 }
 
-#cancel-link {
-    text-decoration: none;
-    margin-right: 2em;
-    font-size: 1.2em;
+
+.form-container select {
+    height: 60px;
+    width: 300px;
+    border-radius: 10px;
 }
 
+.form-container p {
+    color: #1E3190;
+    font-weight: bold;
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+.urgency-radio {
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+}
+
+.urgency-radio input {
+    height: 20px;
+    width: 20px;
+    margin: 0px 10px;
+
+}
+
+.user-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.user-box img {
+    height: 20px;
+    width: 20px;
+}
+
+.adding-links {
+    text-decoration: none;
+    margin-left: 0.5em;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 0px !important;
+
+}
 
 /* change icons of selection and calender */
 select {
@@ -118,11 +113,12 @@ select {
 
 ::-webkit-calendar-picker-indicator {
     background-image: url('/img/icons8-calendar-150.png');
-    font-size: 3em;
+    font-size: 2.5em;
 }
+
 /* OVERLAYS */
 
-#add-user-overlay{
+#add-user-overlay {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -131,11 +127,11 @@ select {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(0, 0, 0,0.3);
+    background-color: rgb(0, 0, 0, 0.3);
 
 }
 
-#add-category-overlay{
+#add-category-overlay {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -144,20 +140,20 @@ select {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(0, 0, 0,0.3);
+    background-color: rgb(0, 0, 0, 0.3);
 }
 
 .add-user-container,
-.add-category-container{
- background-color: #1E3190;
- min-height: 30%;
- min-width: 30%;
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: space-evenly;
- border-radius: 10px;
- z-index: 100;
+.add-category-container {
+    background-color: #1E3190;
+    min-height: 30%;
+    min-width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    z-index: 100;
 }
 
 
@@ -171,10 +167,36 @@ select {
     .title {
         display: none;
     }
+
     .add-task-container h3 {
         font-size: 1.2em;
     }
+
     .add-task-container {
         min-height: 95vh;
     }
+
+    .add-task-container h3 {
+        font-size: 1em !important;
+        margin: 0;
+        padding: 0;
+    }
+
+    .inputRect {
+        height: 25px;
+        width: 100%;
+    }
+
+    .rows {
+
+        margin: 5px;
+    }
+
+    .columns {
+        background-color: transparent;
+        height: 70%;
+        width: 45%;
+        padding: 10px;
+    }
+
 }

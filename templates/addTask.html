@@ -10,11 +10,12 @@
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="../CSS/shared-style.css">
     <link rel="stylesheet" href="../CSS/addTaskStyle.css">
-   
+
 
 
 </head>
@@ -27,71 +28,74 @@
         <a href="./board.html">BOARD</a>
         <a href="./trash.html">TRASH</a>
         <a href="#">HELP</a>
-        
+
     </div>
 
-    
-    <div class="title" >
+
+    <div class="title">
         <h2>Add Task</h2>
         <p>Learning Manegment System Project</p>
     </div>
-    <div class="add-task-container">
-        <div class="form-row-one rows">
-            <div class="first-row-child-one columns">
-                <h3>TITLE</h3>
-                <input  type="text" id="title" placeholder="Insert a title" class="inputRect">
-            </div>
-            <div class="first-row-child-two columns">
-                <h3>DUE DATE</h3>
-                <input type="date" id="date" placeholder="Insert a title" class="inputRect">
-            </div>
 
+    <div class="form-container">
+        <!-- R1 -->
+        <div class="rows">
+            <div class="title-box">
+                <p>TITLE</p>
+                <input type="text" id="title" placeholder="insert a title">
+            </div>
+            <div class="date-box">
+                <p>DATE</p>
+                <input type="date" id="date" placeholder="insert a date">
+            </div>
         </div>
-        <div class="form-row-Two rows">
-            <div class="second-row-child-two columns">
-                <h3>CATEGORY</h3>
-                <select name="category" id="category" class="inputRect"> 
-                    <option value="Cleaning">Cleaning</option>
-                    <option value="Shopping">Shopping </option>
-                    <option value="Cooking">Cooking</option>
+        <!-- R2 -->
+        <div class="rows">
+            <div class="category-box">
+                <p>CATEGORY</p>
+                <select name="category" id="category">
+                    <option value="cleaning">Cleaning</option>
+                    <option value="shopping">Shopping</option>
+                    <option value="cooking">Cooking</option>
                 </select>
-                <p onclick="showDiv('add-category-overlay')" id="add-category-link">Add neu category?</p>
+                <p onclick="showDiv('add-category-overlay')" class="adding-links">Add neu category?</p>
             </div>
-            <div class="second-row-child-two columns">
-                <h3>URGENCY</h3>
-                <select name="URGENCY" id="urgency" class="inputRect">
-                    <option value="3">HEIT</option>
-                    <option value="2">MEDIUM</option>
-                    <option value="1">LOW</option>
-                </select>
-            </div>
+            <div class="user-box">
+                <p>ASIGEND TO</p>
 
+                <select name="" id="asigento">
+                    <option value="anonymous">Anonymous</option>
+                </select>
+                <p onclick="showDiv('add-user-overlay')" class="adding-links">Add neu user?</p>
+            </div>
         </div>
-        <div class="form-row-three rows">
-            <div class="third-row-child-two columns">
-                <h3>DESCRIPTION</h3>
-                <textarea name="" id="description" cols="40" rows="8" class="description-box"></textarea>
-            </div>
-            <div class="third-row-child-two columns">
-
-                <h3>ASIGEND TO</h3>
-                <div class="user-selection">
-                    <select name="" id="asigento" class="inputRect ">
-                        <option value="anonymous">Anonymous</option>
-                    </select>
-                    <img src="/img/icon plus.png" alt="" onclick="showDiv('add-user-overlay')">
-                </div>
-                
-               
-                <div class="form-butons">
-                    <a href="#" id="cancel-link">CANCEL</a>
-                    <button onclick="saveTaskInDB()">CREATE TASK</button>
+        <!-- R3 -->
+        <div class="rows">
+            <div class="urgency-box">
+                <p>URGENCY</p>
+                <div class="urgency-radio">
+                    <input type="radio" name="urgency" id="heig">
+                    <label for="heig">HEIGH</label>
+                    <input type="radio" name="urgency" id="medium">
+                    <label for="medium">medium</label>
+                    <input type="radio" name="urgency" id="low">
+                    <label for="low">LOW</label>
                 </div>
             </div>
-
         </div>
-
+        <!-- R4 -->
+        <div class="rows">
+            <div class="disciption-box">
+                <p>DISCRIPTION</p>
+                <textarea name="" id="description" cols="40" rows="8"></textarea>
+            </div>
+            <div class="buttons-box">
+                <a href="#" id="cancel-link">CANCEL</a>
+                <button onclick="saveTaskInDB()">CREATE TASK</button>
+            </div>
+        </div>
     </div>
+
 
     <!-- OVERLAYS -->
     <div id="add-user-overlay" class="display-none" name="overlay-background">
@@ -100,21 +104,21 @@
             <button onclick="addUser()">Add</button>
         </div>
     </div>
-     
+
     <div id="add-category-overlay" class="display-none" name="overlay-background">
         <div class="add-category-container">
             <input type="text" placeholder="Add a neu Category!" id="new-catrgory">
             <button onclick="addCategory()">Add</button>
         </div>
     </div>
-     
-    
-      
-<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
-<script src="../databaseFire.js"></script>
-<script src="/JS/shairedFunktion.js"></script>
-<script src="../JS/addTask.js" defer></script>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+    <script src="../databaseFire.js"></script>
+    <script src="/JS/shairedFunktion.js"></script>
+    <script src="../JS/addTask.js" defer></script>
 </body>
 
 </html>
