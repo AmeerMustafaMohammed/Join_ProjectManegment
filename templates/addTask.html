@@ -63,8 +63,8 @@
             <div class="user-box">
                 <p>ASIGEND TO</p>
 
-                <select name="" id="asigento">
-                    <option value="anonymous">Anonymous</option>
+                <select name="" id="asigento" onchange="showUserImage()">
+
                 </select>
                 <p onclick="showDiv('add-user-overlay')" class="adding-links">Add neu user?</p>
             </div>
@@ -73,14 +73,16 @@
         <div class="rows">
             <div class="urgency-box">
                 <p>URGENCY</p>
-                <div class="urgency-radio">
-                    <input type="radio" name="urgency" id="heig">
+                <div class="urgency-radio" id="urgency">
+                    <input type="radio" name="urgency" id="heig" value="3">
                     <label for="heig">HEIGH</label>
-                    <input type="radio" name="urgency" id="medium">
+                    <input type="radio" name="urgency" id="medium" value="2" checked>
                     <label for="medium">medium</label>
-                    <input type="radio" name="urgency" id="low">
+                    <input type="radio" name="urgency" id="low" value="1">
                     <label for="low">LOW</label>
                 </div>
+            </div>
+            <div class="assigend-user" id="assigend-user">
             </div>
         </div>
         <!-- R4 -->
@@ -101,7 +103,8 @@
     <div id="add-user-overlay" class="display-none" name="overlay-background">
         <div class="add-user-container">
             <input type="text" placeholder="Add a neu user!" id="user-name">
-            <button onclick="addUser()">Add</button>
+            <input type="file" id="user_image_input">
+            <button onclick="  addUser()">Add</button>
         </div>
     </div>
 

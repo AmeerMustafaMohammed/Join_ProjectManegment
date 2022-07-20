@@ -1,13 +1,13 @@
-#backlog-container{
+#backlog-container {
     margin-left: 17%;
     display: flex;
     flex-direction: column;
-   
+
 }
 
-#backlog-tasks{
+#backlog-tasks {
     overflow-y: scroll;
-   height: 75vh;
+    height: 75vh;
 }
 
 .title {
@@ -15,55 +15,71 @@
     margin-bottom: 40px;
     margin-top: 40px;
 }
-.backlog-title{
+
+.backlog-title {
     display: flex;
     justify-content: space-between;
     color: blue;
 }
-.backlog-title >div{
+
+.backlog-title>div {
     display: flex;
     justify-content: center;
 }
-.backlog-content{
+
+.backlog-content {
     display: flex;
     flex-direction: column;
     background-color: #F4F3FB;
     margin-top: 5px;
     padding: 10px;
     border-radius: 10px;
-    
-  
+
+
 }
-.backlog-row-firs-child{
+
+.backlog-row-firs-child {
     display: flex;
     justify-content: space-between;
 }
 
-.customBox{
+.customBox {
     width: 30% !important;
- 
+
 }
-.user-info{
+
+.user-info {
     display: flex;
     align-items: center;
 }
-.user-name-email{
+
+#userImage {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-name-email {
     margin-left: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start
 }
-.user-name-email p{
-   padding: 0;
-   margin: 0;
-   color: red;
+
+.user-name-email p {
+    padding: 0;
+    margin: 0;
+    color: red;
 }
-.category{
+
+.category {
     display: flex;
     justify-content: center;
 }
-.ditails{
+
+.ditails {
     display: flex;
     justify-content: center;
 }

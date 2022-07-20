@@ -99,6 +99,22 @@ body {
 
 }
 
+.assigend-user img {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.buttons-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
 /* change icons of selection and calender */
 select {
     -webkit-appearance: none;
@@ -168,35 +184,101 @@ select {
         display: none;
     }
 
-    .add-task-container h3 {
-        font-size: 1.2em;
+    .form-container {
+        margin-top: 30px;
     }
 
-    .add-task-container {
-        min-height: 95vh;
+
+}
+
+
+@media screen and (max-width: 1000px) {
+    .form-container {
+        margin-left: 5%;
+        margin-right: 5%;
     }
 
-    .add-task-container h3 {
-        font-size: 1em !important;
-        margin: 0;
-        padding: 0;
+}
+
+@media screen and (max-width: 800px) {
+    .title {
+        display: none;
     }
 
-    .inputRect {
-        height: 25px;
-        width: 100%;
+    .form-container {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
     }
 
     .rows {
-
-        margin: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    .columns {
-        background-color: transparent;
-        height: 70%;
-        width: 45%;
-        padding: 10px;
+    .rows>div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
+
+    .form-container input {
+        height: 60px;
+        width: 80vw;
+        border-radius: 10px;
+    }
+
+
+    .form-container select {
+        height: 60px;
+        width: 80vw;
+        border-radius: 10px;
+    }
+
+    .form-container p {
+        color: #1E3190;
+        font-weight: bold;
+        font-size: 1em;
+        margin-bottom: 20px;
+        margin-top: 1em;
+    }
+
+    .urgency-radio {
+        display: flex;
+        align-items: center;
+        max-width: 400px;
+    }
+
+    .urgency-radio input {
+        height: 20px;
+        width: 20px;
+        margin: 0px 10px;
+
+    }
+
+    .user-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .user-box img {
+        height: 20px;
+        width: 20px;
+    }
+
+    .adding-links {
+        text-decoration: none;
+        margin-left: 0.5em;
+        font-size: 1em;
+        cursor: pointer;
+        margin-top: 10px;
+        margin-bottom: 0px !important;
+
+    }
+
 
 }

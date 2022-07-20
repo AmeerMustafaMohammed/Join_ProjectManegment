@@ -1,10 +1,17 @@
 
 // makeing new group
-async function saveGr(){
+async function saveGr() {
     let grName = document.getElementById("new-group-input").value
     console.log(grName)
     await database.ref('groups/' + grName).set({
-        grName:grName,
+        grName: grName,
+
+    })
+    await database.ref('groups/' + grName + "/users/" + "0").set({
+        userId: "0",
+        userName: "Anonymous",
+        userPhoto: "../img/anonymous.png",
+        userEmail: "Anonymous@yahoo.com"
 
     })
     console.log("Added")
@@ -13,16 +20,16 @@ async function saveGr(){
 }
 
 
-function callFromDb(groupInput){
+function callFromDb(groupInput) {
     let response = database.ref('groups/' + groupInput)
-   
-    response.on('value', function(snapshot){
+
+    response.on('value', function (snapshot) {
         let data = snapshot.val();
-        if(data){
-            saveArrayInLS("currentGroup",groupInput)
+        if (data) {
+            saveArrayInLS("currentGroup", groupInput)
             window.location = "./templates/addTask.html"
         }
-        else{
+        else {
             console.log("No Found")
         }
     })
@@ -32,13 +39,13 @@ function callFromDb(groupInput){
 function login(Demo) {
     let groupInput = document.getElementById('group-input');
     if (!Demo && groupInput.value) {
-        callFromDb(groupInput.value)   
+        callFromDb(groupInput.value)
     } else if (Demo) {
-        saveArrayInLS("currentGroup","DEMO")
+        saveArrayInLS("currentGroup", "DEMO")
         window.location = "./templates/addTask.html"
-       
+
     } else {
-        makeOutlineRed('group-input') 
+        makeOutlineRed('group-input')
     }
 }
 
@@ -59,7 +66,7 @@ function showDiv(id) {
 
 
 /* LOCAL STORAGE */
-function saveArrayInLS(key,arrayInput) {
+function saveArrayInLS(key, arrayInput) {
     let arrayAsString = JSON.stringify(arrayInput);
     localStorage.setItem(key, arrayAsString)
 }

@@ -9,10 +9,12 @@ const firebaseConfig = {
     storageBucket: "joinapp-75543.appspot.com",
     messagingSenderId: "928187275554",
     appId: "1:928187275554:web:f84acea8ef954187de6d7b"
-  };
+};
 
-  firebase.initializeApp(firebaseConfig)
+firebase.initializeApp(firebaseConfig)
 let database = firebase.database();
+
+
 
 
 
@@ -23,20 +25,20 @@ function loadArrayFromLS(arrayInput) {
 }
 
 
-function getGroupDataFromDB(){
-  return new Promise((res,rej) => {
-      try {
-          let response = database.ref('groups/' + currentGroup )
- 
-           response.on('value', function(snapshot){
-               let data = snapshot.val();  
-                let lastData =   Object.values(data)        
-                 res(data)        
-           })
-          }
-      catch(error){
-          rej(error)
-      }
-  })
+function getGroupDataFromDB() {
+    return new Promise((res, rej) => {
+        try {
+            let response = database.ref('groups/' + currentGroup)
+
+            response.on('value', function (snapshot) {
+                let data = snapshot.val();
+                let lastData = Object.values(data)
+                res(data)
+            })
+        }
+        catch (error) {
+            rej(error)
+        }
+    })
 }
 
