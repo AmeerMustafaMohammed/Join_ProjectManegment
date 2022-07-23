@@ -2,11 +2,22 @@
 // makeing new group
 async function saveGr() {
     let grName = document.getElementById("new-group-input").value
-    console.log(grName)
-    await database.ref('groups/' + grName).set({
-        grName: grName,
+    saveGrName(grName)
+    saveDefaultUser(grName)
+    saveDefaultcategories(grName)
+    window.location = "./index.html";
 
+}
+
+/* DEFAULT DATA IN NEU GRUOP */
+async function saveGrName(grName) {
+    await database.ref('groups/' + grName).set({
+        grName: grName
     })
+}
+
+async function saveDefaultUser(grName) {
+    console.log("SaveUser")
     await database.ref('groups/' + grName + "/users/" + "0").set({
         userId: "0",
         userName: "Anonymous",
@@ -14,8 +25,17 @@ async function saveGr() {
         userEmail: "Anonymous@yahoo.com"
 
     })
-    console.log("Added")
-    window.location = "./index.html";
+}
+
+
+async function saveDefaultcategories(grName) {
+    let categories = ["shopping", "cleaning", "reparing"]
+    categories.forEach(async (item, index, arr) => {
+        await database.ref('groups/' + grName + "/category/" + index).set({
+            category_name: item
+        })
+    }
+    )
 
 }
 

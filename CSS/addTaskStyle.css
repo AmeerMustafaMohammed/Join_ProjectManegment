@@ -132,7 +132,9 @@ select {
     font-size: 2.5em;
 }
 
-/* OVERLAYS */
+/* OVERLAYS *************************************************/
+
+
 
 #add-user-overlay {
     position: absolute;
@@ -147,6 +149,72 @@ select {
 
 }
 
+.upload-image-box {
+    background-color: #e3e3e3;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: black solid 4px;
+}
+
+.upload-image-box input {
+    display: none;
+}
+
+.upload-image-box label {
+    color: black;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+
+}
+
+.material-symbols-outlined {
+    font-size: 5em;
+}
+
+.image-preview-style {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+.add-user-container input {
+    height: 10vh;
+    width: 30vw;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.user-overlay-buttons {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.user-overlay-buttons button {
+    background-color: rgb(229, 183, 98);
+    height: 60px;
+    width: 200px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.user-overlay-buttons button:hover {
+    background-color: rgb(201, 167, 104);
+    transition: 30ms ease-in-out;
+}
+
 #add-category-overlay {
     position: absolute;
     top: 0;
@@ -159,11 +227,25 @@ select {
     background-color: rgb(0, 0, 0, 0.3);
 }
 
+.add-category-container input {
+    height: 10vh;
+    width: 30vw;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.add-category-container button {
+    background-color: orange;
+    height: 60px;
+    width: 200px;
+    border-radius: 20px;
+}
+
 .add-user-container,
 .add-category-container {
-    background-color: #1E3190;
-    min-height: 30%;
-    min-width: 30%;
+    background: linear-gradient(180deg, #140194, #b1a8cd);
+    min-height: 60%;
+    min-width: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;

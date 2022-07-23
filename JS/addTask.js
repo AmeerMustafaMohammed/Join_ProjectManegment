@@ -123,17 +123,27 @@ async function addUser() {
             userPhoto: await uploadUserPhoto()
         })
         showUsers()
+        hideDiv("add-user-overlay")
     }
     else {
-        makeOutlineRed(userName)
+        makeOutlineRed("user-name")
     }
 }
 
+function cleanUserOverlay() {
+    removeRedOutline("user-name")
+    let addUserLable = document.getElementById("user_image_lable")
+    let usernameInput = document.getElementById("user-name")
+
+    addUserLable.style.backgroundImage = "";
+    usernameInput.value = "";
+}
 /* ADDING USER PHOTO */
 
 async function uploadUserPhoto() {
     let imageInput = document.getElementById("user_image_input")
     if (imageInput.value) {
+
         return new Promise((res, rej) => {
             const reader = new FileReader();
             reader.addEventListener("load", () => {
@@ -153,6 +163,19 @@ async function uploadUserPhoto() {
 }
 
 
+
+function previewUserimage() {
+
+    let imageInput = document.getElementById("user_image_input")
+    let userimageLable = document.getElementById("user_image_lable")
+    let reader = new FileReader()
+    reader.onloadend = function () {
+        userimageLable.style.backgroundImage = `url(${reader.result})`
+        userimageLable.classList.add("image-preview-style")
+    }
+    reader.readAsDataURL(imageInput.files[0])
+}
+
 // adding neu Category to the Database
 function addCategory() {
     let neuCategory = document.getElementById("new-catrgory");
@@ -162,10 +185,18 @@ function addCategory() {
         })
         console.log("Neu Category Added")
         showCategoris()
+        hideDiv("add-category-overlay")
     }
     else {
-        makeOutlineRed(neuCategory)
+        makeOutlineRed("new-catrgory")
     }
+}
+
+
+function cleanCategoryOverlay() {
+    removeRedOutline("new-catrgory")
+    let categoryInput = document.getElementById("new-catrgory")
+    categoryInput.value = "";
 }
 
 /* **************************************  USIFUL FUNCTIONS*/
