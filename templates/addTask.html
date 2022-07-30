@@ -131,10 +131,17 @@
             <input type="text" placeholder="Add a neu Category!" id="new-catrgory">
             <button onclick="addCategory()">Add</button>
             <button onclick="hideDiv('add-category-overlay')">cancel</button>
-
         </div>
     </div>
 
+    <!-- Successfull adding task overlay -->
+    <div id="successful-overlay" class="display-none">
+        <div class="successful-box">
+            <h1>The task Added Successfully</h1>
+            <button>Go to Bcklog</button>
+            <button>addOnethertask</button>
+        </div>
+    </div>
 
 
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>

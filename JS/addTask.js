@@ -76,10 +76,14 @@ function saveTaskInDB() {
 
         })
         console.log("Added")
+        successfullOverlay()
     }
 }
 
-
+function successfullOverlay() {
+    let successfullOverlay = document.getElementById("successful-overlay")
+    successfullOverlay.classList.remove("display-none")
+}
 
 function getTaskAttributs() {
     let myDivs = ["title", "date", "category", "asigento", "urgency", "description"]
