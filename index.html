@@ -17,20 +17,23 @@
 <body>
     <div class="login-container">
         <div class="group-login">
-            <h2>Login with your group name</h2>
-            <input type="text" placeholder="Insert your group name" id="group-input">
+            <h2>Login with your group name and Password</h2>
+            <input type="text" placeholder="Insert your group name" id="group-login-name">
+            <input type="text" placeholder="Insert your Passcode" id="group-login-passcode">
+            <p class="display-none" id="login-error">Login and Password is Wrong</p>
             <button onclick="login();">LOGIN</button>
             <p>need an account? <a href="javascript:hideDiv('.group-login');showDiv('.group-register');">register</a></p>
 
         </div>
         <div class="group-register ">
             <h2>Make a new Group</h2>
-            <input type="text" placeholder="Insert your group name" id="new-group-input">
+            <input type="text" placeholder="Insert your group name" id="new-group-name">
+            <input type="text" placeholder="Insert your group passcode" id="new-group-passcode">
             <button onclick="saveGr()">Register</button>
         </div>
         <div class="demo">
             <h2>Or Login with Demo Account</h2>
-            <button onclick="login('DEMO');">DEMO</button>
+            <button onclick="demoLogin()">DEMO</button>
         </div>
 
     </div>

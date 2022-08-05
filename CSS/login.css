@@ -63,3 +63,11 @@ body {
     cursor: pointer;
     background-color: #FFFFFF;
 }
+
+.display-none{
+    display: none;
+}
+
+#login-error{
+    color: red;
+}
