@@ -83,6 +83,7 @@ function saveTaskInDB() {
 function successfullOverlay() {
     let successfullOverlay = document.getElementById("successful-overlay")
     successfullOverlay.classList.remove("display-none")
+    confettify()
 }
 
 function getTaskAttributs() {
@@ -161,7 +162,7 @@ async function uploadUserPhoto() {
         })
     }
     else {
-        return "NoPhoto"
+        return "../img/anonymous.png"
     }
 
 }
@@ -229,6 +230,18 @@ document.getElementById("add-category-overlay").addEventListener('click', e => {
 
 
 
+function gotoLocation(url){
+   console.log(url)
+   window.location.href=url
+}
+
+
+
+const jsConfetti = new JSConfetti()
+
+function confettify(){
+    jsConfetti.addConfetti()
+}
 
 /* 
 

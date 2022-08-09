@@ -8,6 +8,7 @@
 #backlog-tasks {
     overflow-y: scroll;
     height: 75vh;
+    padding: 5px;
 }
 
 .title {
@@ -42,6 +43,7 @@
     display: flex;
     justify-content: space-between;
 }
+
 
 .customBox {
     width: 30% !important;
@@ -82,4 +84,20 @@
 .ditails {
     display: flex;
     justify-content: center;
+}
+
+.backlog-row-second-child {
+    display: flex;
+    justify-content: space-between;
+    justify-content: flex-start;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.backlog-row-second-child button{
+    width: 100px;
+    height: 40px;
+    margin-top: 15px;
+    margin-left: 5px;
+   
 }

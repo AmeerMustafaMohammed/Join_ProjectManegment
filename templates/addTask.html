@@ -17,6 +17,8 @@
 
     <link rel="stylesheet" href="../CSS/shared-style.css">
     <link rel="stylesheet" href="../CSS/addTaskStyle.css">
+<!-- JS CONFETII -->
+<script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
 
 
 
@@ -135,11 +137,11 @@
     </div>
 
     <!-- Successfull adding task overlay -->
-    <div id="successful-overlay" class="display-none">
+    <div id="successful-overlay" class="display-none" >
         <div class="successful-box">
             <h1>The task Added Successfully</h1>
-            <button>Go to Bcklog</button>
-            <button>addOnethertask</button>
+            <button onclick="gotoLocation('./backlog.html')">Go to Bcklog</button>
+            <button onclick="gotoLocation('./addTask.html')">another TASK</button>
         </div>
     </div>
 
@@ -147,7 +149,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
     <script src="../databaseFire.js"></script>
-    <script src="/JS/shairedFunktion.js"></script>
+    <script src="../JS/shairedFunktion.js"></script>
     <script src="../JS/addTask.js" defer></script>
 </body>
 

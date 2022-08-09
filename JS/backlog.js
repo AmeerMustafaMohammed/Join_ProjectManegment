@@ -1,6 +1,15 @@
-showGrName()
-showTasksOnScreen()
 
+function init(){
+    showGrName()
+    cleanBacklog()
+    showTasksOnScreen()
+
+}
+
+function cleanBacklog(){
+    let backlogTasks = document.getElementById("backlog-tasks")
+    backlogTasks.innerHTML =""
+}
 async function showTasksOnScreen() {
     //TODO CLEANING
     let response = await getGroupDataFromDB()
@@ -80,5 +89,5 @@ function editTask(id) {
 
 function pinTask(id) {
     changeStage(id, "todo")
-    showTasksOnScreen()
+    init()
 }

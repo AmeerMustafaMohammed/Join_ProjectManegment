@@ -130,7 +130,7 @@ body {
 select {
     -webkit-appearance: none;
     -moz-appearance: none;
-    background-image: url('/img/chevron\ .png');
+    background-image: url('../img/chevron\ .png');
     background-position-x: 95%;
     background-position-y: 50%;
     padding-left: 1em;
@@ -139,7 +139,7 @@ select {
 
 
 ::-webkit-calendar-picker-indicator {
-    background-image: url('/img/icons8-calendar-150.png');
+    background-image: url('../img/icons8-calendar-150.png');
     font-size: 2.5em;
 }
 
@@ -279,15 +279,30 @@ select {
 }
 
 .successful-box {
+    position: relative;
     background: linear-gradient(180deg, #140194, #b1a8cd);
     min-height: 60%;
     min-width: 60%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: flex-end;
     border-radius: 10px;
     z-index: 100;
+}
+.successful-box h1{
+    position: absolute;
+    top: 30%;
+}
+.successful-box button{
+    background-color: orange;
+    margin: 10px;
+    margin-bottom: 10%;
+    height: 60px;
+    width: 200px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1.3em;
+
 }
 
 /* My Classes */
