@@ -1,5 +1,12 @@
+* {
+    font-family: 'PT Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
 #backlog-container {
     margin-left: 17%;
+    margin-right: 3%;
     display: flex;
     flex-direction: column;
 
@@ -20,7 +27,11 @@
 .backlog-title {
     display: flex;
     justify-content: space-between;
+    align-items:center ;
     color: blue;
+    background-color: rgb(0, 0, 0,0.05);
+    border-radius: 10px;
+    min-height: 50px;
 }
 
 .backlog-title>div {
@@ -101,3 +112,87 @@
     margin-left: 5px;
    
 }
+
+/* EDIT OVERLY */
+
+#edit-overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(0, 0, 0,0.5);
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#edit-overlay input{
+    height: 50px;
+    width: 80%;
+}
+.edit-container select{
+   
+     height: 50px;
+     width: 90%;
+    
+}
+.edit-container{
+    width: 60%;
+    height: 60%;
+    background-color: #F4F3FB;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+}
+.left-box{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 20px;
+}
+.right-box{
+    display: flex;
+    flex-direction: column;
+   
+    width: 50%;
+    gap: 20px;
+}
+
+.update-buttons{
+    display: flex;
+   padding-left: 10px;
+    align-items: center;
+    gap: 10px;
+}
+.update-buttons button{
+    height: 50px;
+    width: 100px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color:rgb(101, 101, 191);
+}
+.display-none{
+    display: none;
+}
+
+
+.empty-backlog {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  
+  
+}
+
+
+.empty-backlog h2 {
+    color: black;
+    opacity: 0.5;
+    font-size: 50px;
+    font-family: 'Permanent Marker', cursive;
+    
+}
+
+

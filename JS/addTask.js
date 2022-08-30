@@ -16,7 +16,7 @@ async function showCategoris() {
         categorySelect.innerHTML = ""
         for (let i = (categories.length - 1); i >= 0; i--) {
             categorySelect.innerHTML += `
-            <option value="${categories[i]["category_name"]}">${categories[i]["category_name"]}</option>
+            <option value="${categories[i]["id"]}">${categories[i]["category_name"]}</option>
             `;
         }
     } catch (error) {
@@ -29,11 +29,14 @@ async function showUsers() {
     try {
         let response = await getGroupDataFromDB()
         let users = Object.values(response.users)
-        let userSelection = document.getElementById("asigento")
+       
+        let userSelection = document.getElementById("assigento")
         userSelection.innerHTML = ""
         for (let i = (users.length - 1); i >= 0; i--) {
+            let userId = users[i]["userId"]
+            let userName = users[i]["userName"]
             userSelection.innerHTML += `
-            <option value="${users[i]["userId"]}">${users[i]["userName"]}</option>
+            <option value="${userId}" id="${userId}">${userName}</option>
             `;
         }
         showUserImage()
@@ -46,14 +49,17 @@ async function showUsers() {
 
 // showing USER_IMAGE in form
 async function showUserImage() {
-    let id = document.getElementById("asigento").value
     let userImagecontainer = document.getElementById("assigend-user")
-    userImagecontainer.innerHTML = ""
     let response = await getGroupDataFromDB()
+    let assigentoSelection = document.getElementById("assigento")
+    let id = assigentoSelection.options[assigentoSelection.selectedIndex].id
     let userImageUrl = response.users[id]["userPhoto"]
+    
+    userImagecontainer.innerHTML = ""
     let newImg = document.createElement('img')
     newImg.src = `${userImageUrl}`;
     userImagecontainer.appendChild(newImg)
+   
 
 }
 
@@ -71,7 +77,7 @@ function saveTaskInDB() {
             category: allAtributs.category,
             urgency: allAtributs.urgency,
             description: allAtributs.description,
-            asigento: allAtributs.asigento,
+            assigento: allAtributs.assigento,
             stage: "backlog"
 
         })
@@ -87,7 +93,7 @@ function successfullOverlay() {
 }
 
 function getTaskAttributs() {
-    let myDivs = ["title", "date", "category", "asigento", "urgency", "description"]
+    let myDivs = ["title", "date", "category", "assigento", "urgency", "description"]
     let allAtributs = {}
     let i = 0;
     while (i < myDivs.length) {
@@ -104,8 +110,10 @@ function getTaskAttributs() {
             break;
         }
     }
+    console.log(allAtributs)
     return allAtributs;
 }
+
 
 function getDivbyId(id) {
     if (id == "urgency") {
@@ -113,7 +121,6 @@ function getDivbyId(id) {
     }
     return document.getElementById(id).value
 }
-
 
 
 // adding neu User to the Database
@@ -184,9 +191,11 @@ function previewUserimage() {
 // adding neu Category to the Database
 function addCategory() {
     let neuCategory = document.getElementById("new-catrgory");
+    let id = idGenerator()
     if (neuCategory.value) {
-        database.ref('groups/' + currentGroup + '/category/' + idGenerator()).set({
-            category_name: neuCategory.value
+        database.ref('groups/' + currentGroup + '/category/' + id).set({
+            category_name: neuCategory.value,
+            id:id
         })
         console.log("Neu Category Added")
         showCategoris()

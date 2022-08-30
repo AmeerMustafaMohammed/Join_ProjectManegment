@@ -7,9 +7,17 @@ async function saveGr() {
     saveGrPasscode(grPasscode,grName)
     saveDefaultUser(grName)
     saveDefaultcategories(grName)
-    window.location = "./index.html";
-
+    changePageCoutdoun("./index.html")
 }
+
+
+function changePageCoutdoun(page){
+setTimeout(function(){
+window.location = page;
+
+},1000)
+}
+
 
 /* DEFAULT DATA IN NEU GRUOP */
 async function saveGrName(grName) {
@@ -39,7 +47,8 @@ async function saveDefaultcategories(grName) {
     let categories = ["shopping", "cleaning", "reparing"]
     categories.forEach(async (item, index, arr) => {
         await database.ref('groups/' + grName + "/category/" + index).set({
-            category_name: item
+            category_name: item,
+            id:index
         })
     }
     )

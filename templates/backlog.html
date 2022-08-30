@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     
+    
     <link rel="stylesheet" href="../CSS/addTaskStyle.css">
     <link rel="stylesheet" href="../CSS/shared-style.css">
     <link rel="stylesheet" href="../CSS/backlog-style.css">
@@ -24,7 +25,7 @@
 <body onload="init()">
     <div class="nav-bar">
         <h3 id="gr-name">Group Name</h3>
-        <a href="./addTask.html">ADD TASK</a>
+        <a href="./addTask.html">ADD_TASK</a>
         <a href="./backlog.html">BACKLOG</a>
         <a href="./board.html">BOARD</a>
         <a href="./trash.html">TRASH</a>
@@ -51,6 +52,51 @@
 
      </div>
 
+    </div>
+    <!-- Edit Overlay -->
+    <div id="edit-overlay" class="display-none">
+        <div class="edit-container">
+            <div class="left-box">
+                <!-- title -->
+                <label for="title">TITLE</label>
+                <input type="text" name="title" id="title">
+                <!-- date -->
+                <label for="date">DATE</label>
+                <input type="date" name="date" id="date">
+                <!-- discription -->
+                <label for="description">DISCRIPTION</label>
+                <textarea name="description" id="description" cols="30" rows="10" style="width: 300px;"></textarea>
+                
+            </div>
+            <div class="right-box">
+                <!-- user -->
+                <label for="user">ASSIGEND TO</label>
+                <select name="user" id="user">
+                    <option value="test">FirstUser</option>
+                </select>
+                <!-- urgency -->
+                <label for="urgency">URGENCY</label>
+                <select name="urgency" id="urgency">
+                    <option value="3">HEIGHT</option>
+                    <option value="2">MEDIUM</option>
+                    <option value="1">LOW</option>
+                </select>
+              
+                 <!-- category -->
+                 <label for="category">CATEGORY</label>
+                 <select id="category" name="category">
+                     <option value="test">First</option>
+                 </select>
+                 <!-- buttons -->
+                 <div class="update-buttons">
+                    <button onclick="hideDiv('edit-overlay')">CANCEL</button>
+                    <button onclick="saveEditedTask()">UPDATE</button>
+                 </div>
+               
+                
+            </div>
+           
+        </div>
     </div>
       
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>

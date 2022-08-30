@@ -1,0 +1,11 @@
+
+
+
+
+
+<div class="single-task" draggable="true" id="${tasks[i].id}" ondragstart="rememberDragedItem(${tasks[i].id})">
+    <div>${tasks[i].title}</div>
+    <div> ${tasks[i].urgency}</div>   
+  <p class="material-symbols-outlined delete-icon" onclick="deleteItem(${tasks[i].id})">delete</p>
+    <div class="stage-light">t</div>
+</div>

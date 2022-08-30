@@ -4,7 +4,6 @@ function init(){
     showGrName()
     cleanAllColumns();
     showTasks()
-    //showTaskOnBoard()
 }
 
 
@@ -37,18 +36,35 @@ async function showTasks(){
   filterByUrgency(doneTasks) 
   gernarateTasks(doneTasks,"done")
 
+  //changing urgency light
+
 }
 
 function gernarateTasks(tasks,columName){
+  console.log(tasks)
   for(let i=0;i<tasks.length;i++){
     let boardColumn = document.querySelector(`.${columName}`)
-        boardColumn.innerHTML += `
-        <div class="single-task" draggable="true" id="${tasks[i].id}" ondragstart="rememberDragedItem(${tasks[i].id})">
-          ${tasks[i].title}
-       ${tasks[i].urgency}
-          <p class="material-symbols-outlined" onclick="deleteItem(${tasks[i].id})">delete</p>
-          </div>
+    let title = tasks[i].title;
+    let urgency = tasks[i].urgency;
+        boardColumn.innerHTML += 
         `
+          <div class="single-task" draggable="true" id="${tasks[i].id}" ondragstart="rememberDragedItem(${tasks[i].id})">
+               <div>${title}</div>
+                <p class="material-symbols-outlined delete-icon" onclick="deleteItem(${tasks[i].id})">delete</p>
+                 <div class="urgincy-light" style="background-color:${UrgincyColor(urgency)};"></div>
+           </div>
+      
+    
+        `
+  }
+}
+
+function UrgincyColor(urgency){
+  if(urgency == 2){
+    return "orange"
+  }
+  if(urgency == 3){
+    return "green"
   }
 }
 
@@ -118,6 +134,9 @@ function rememberDragedItem(id){
  
  function drop(){
   let  targetedContainer = this.id
+
+  let curentColumn = document.getElementById(this.id)
+  curentColumn.classList.remove("elementOver")
   
   changeStage(dragged,targetedContainer)
   init()
@@ -126,12 +145,20 @@ function rememberDragedItem(id){
 
 
  function dragEnter(){
-   // console.log(" dragEnter")
+   console.log(" dragEnter")
+  let curentColumn = document.getElementById(this.id)
+  curentColumn.classList.add("elementOver")
+ 
  }
  
  
  function dragLeave(){
-   // console.log(" dragLeave")
+    console.log(" dragLeave")
+
+   let curentColumn = document.getElementById(this.id)
+  curentColumn.classList.remove("elementOver")
+ 
+
  }
  
  
