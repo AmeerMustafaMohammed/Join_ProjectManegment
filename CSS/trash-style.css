@@ -1,40 +1,48 @@
-body{
-    background-color: rgb(0, 0, 0,0.1);
+body {
+    background-color: rgb(0, 0, 0, 0.1);
 }
+
 * {
     font-family: 'PT Sans', sans-serif;
     margin: 0;
     padding: 0;
 }
-#big-container{
-    margin-left: 300px;;
+
+#big-container {
+    margin-left: 300px;
     display: flex;
+    flex-wrap: wrap;
 }
-.singel-task{
-    background-color: red;
-    width: fit-content;
+
+.singel-task {
+    background-color: black;
+    color: white;
+    min-width: 200px;
+    min-height: 200px;
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     position: relative;
 }
-.singel-task h3{
+
+.singel-task h3 {
     padding: 0;
     margin: 0;
 }
-.singel-task p{
-   padding: 10px;
+
+.singel-task p {
+    padding: 10px;
 }
 
-.material-symbols-outlined{
+.material-symbols-outlined {
     background-color: blue;
     color: aliceblue;
     padding: 0 !important;
-    margin:0 !important;
+    margin: 0 !important;
     position: absolute;
     bottom: 2px;
     right: 2px;

@@ -4,18 +4,18 @@ async function saveGr() {
     let grName = document.getElementById("new-group-name").value
     let grPasscode = document.getElementById("new-group-passcode").value
     saveGrName(grName)
-    saveGrPasscode(grPasscode,grName)
+    saveGrPasscode(grPasscode, grName)
     saveDefaultUser(grName)
     saveDefaultcategories(grName)
-    changePageCoutdoun("./index.html")
+    changePageCountdoun("./index.html")
 }
 
 
-function changePageCoutdoun(page){
-setTimeout(function(){
-window.location = page;
+function changePageCountdoun(page) {
+    setTimeout(function () {
+        window.location = page;
 
-},1000)
+    }, 1000)
 }
 
 
@@ -25,7 +25,7 @@ async function saveGrName(grName) {
         grName: grName
     })
 }
-async function saveGrPasscode(grPasscode,grName) {
+async function saveGrPasscode(grPasscode, grName) {
     await database.ref('groups/' + grName).set({
         passcode: grPasscode
     })
@@ -48,7 +48,7 @@ async function saveDefaultcategories(grName) {
     categories.forEach(async (item, index, arr) => {
         await database.ref('groups/' + grName + "/category/" + index).set({
             category_name: item,
-            id:index
+            id: index
         })
     }
     )
@@ -61,50 +61,50 @@ async function saveDefaultcategories(grName) {
 function login() {
     let groupName = document.getElementById('group-login-name');
     let groupPasscode = document.getElementById('group-login-passcode');
-    imputIsEmpty = checkForInput(groupName.value,groupPasscode.value);
-    if(!imputIsEmpty){
-        authorization(groupName.value,groupPasscode.value)
+    imputIsEmpty = checkForInput(groupName.value, groupPasscode.value);
+    if (!imputIsEmpty) {
+        authorization(groupName.value, groupPasscode.value)
     }
 }
 
-async function authorization(groupName,groupPasscode){
+async function authorization(groupName, groupPasscode) {
     let response = await database.ref('groups/' + groupName)
-       
+
     response.on('value', function (snapshot) {
         let data = snapshot.val();
-       
+
         if (data && data.passcode == groupPasscode) {
             saveArrayInLS("currentGroup", groupName)
-            window.location = "./templates/addTask.html"   
+            gotoLocation("addTask.html")
         }
         else {
             showLoginError();
         }
     })
 }
-function checkForInput(groupName,groupInput){
+function checkForInput(groupName, groupInput) {
     removeRedOutline('group-login-name')
     removeRedOutline('group-login-passcode')
-    let inputIsEmpety=false;
-    if(!groupName){
+    let inputIsEmpety = false;
+    if (!groupName) {
         makeOutlineRed('group-login-name')
-     inputIsEmpety=true;
+        inputIsEmpety = true;
     }
-    if(!groupInput){
+    if (!groupInput) {
         makeOutlineRed('group-login-passcode')
-     inputIsEmpety=true;
+        inputIsEmpety = true;
     }
     return inputIsEmpety;
 }
 
 
-function demoLogin(){
+function demoLogin() {
     saveArrayInLS("currentGroup", "DEMO")
-    window.location = "./templates/addTask.html"   
+    window.location = "./templates/addTask.html"
 }
 
 
-function showLoginError(){
+function showLoginError() {
     let loginError = document.getElementById("login-error")
     loginError.classList.remove("display-none");
 }
@@ -129,7 +129,6 @@ function saveArrayInLS(key, arrayInput) {
     let arrayAsString = JSON.stringify(arrayInput);
     localStorage.setItem(key, arrayAsString)
 }
-
 
 
 

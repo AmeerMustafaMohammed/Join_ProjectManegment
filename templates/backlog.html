@@ -10,14 +10,15 @@
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    
-    
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+
     <link rel="stylesheet" href="../CSS/addTaskStyle.css">
     <link rel="stylesheet" href="../CSS/shared-style.css">
     <link rel="stylesheet" href="../CSS/backlog-style.css">
 
-   
+
 
 
 </head>
@@ -30,6 +31,9 @@
         <a href="./board.html">BOARD</a>
         <a href="./trash.html">TRASH</a>
         <a href="#">HELP</a>
+
+        <button class="logout-button" onclick="logout()">LOGOUT</button>
+
     </div>
     <div class="title">
         <h2>Backlog</h2>
@@ -38,19 +42,19 @@
     <div id="backlog-container">
         <div class="backlog-title">
             <div class="customBox">
-                <h3 >ASSIGEND TO</h3>
+                <h3>ASSIGEND TO</h3>
             </div>
-          <div class="customBox">
-            <h3 >CATEGORY</h3>
-          </div>
-          <div class="customBox">
-            <h3 >DETAILS</h3>
-          </div>
-     </div>
-      
-     <div class="backlog-tasks" id="backlog-tasks">
+            <div class="customBox">
+                <h3>CATEGORY</h3>
+            </div>
+            <div class="customBox">
+                <h3>DETAILS</h3>
+            </div>
+        </div>
 
-     </div>
+        <div class="backlog-tasks" id="backlog-tasks">
+
+        </div>
 
     </div>
     <!-- Edit Overlay -->
@@ -66,7 +70,7 @@
                 <!-- discription -->
                 <label for="description">DISCRIPTION</label>
                 <textarea name="description" id="description" cols="30" rows="10" style="width: 300px;"></textarea>
-                
+
             </div>
             <div class="right-box">
                 <!-- user -->
@@ -81,29 +85,29 @@
                     <option value="2">MEDIUM</option>
                     <option value="1">LOW</option>
                 </select>
-              
-                 <!-- category -->
-                 <label for="category">CATEGORY</label>
-                 <select id="category" name="category">
-                     <option value="test">First</option>
-                 </select>
-                 <!-- buttons -->
-                 <div class="update-buttons">
+
+                <!-- category -->
+                <label for="category">CATEGORY</label>
+                <select id="category" name="category">
+                    <option value="test">First</option>
+                </select>
+                <!-- buttons -->
+                <div class="update-buttons">
                     <button onclick="hideDiv('edit-overlay')">CANCEL</button>
                     <button onclick="saveEditedTask()">UPDATE</button>
-                 </div>
-               
-                
+                </div>
+
+
             </div>
-           
+
         </div>
     </div>
-      
-<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
-<script src="../databaseFire.js"></script>
-<script src="../JS/shairedFunktion.js"></script>
-<script src="../JS/backlog.js" defer></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+    <script src="../databaseFire.js"></script>
+    <script src="../JS/shairedFunktion.js"></script>
+    <script src="../JS/backlog.js" defer></script>
 </body>
 
 </html>

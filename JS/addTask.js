@@ -29,7 +29,7 @@ async function showUsers() {
     try {
         let response = await getGroupDataFromDB()
         let users = Object.values(response.users)
-       
+
         let userSelection = document.getElementById("assigento")
         userSelection.innerHTML = ""
         for (let i = (users.length - 1); i >= 0; i--) {
@@ -54,12 +54,12 @@ async function showUserImage() {
     let assigentoSelection = document.getElementById("assigento")
     let id = assigentoSelection.options[assigentoSelection.selectedIndex].id
     let userImageUrl = response.users[id]["userPhoto"]
-    
+
     userImagecontainer.innerHTML = ""
     let newImg = document.createElement('img')
     newImg.src = `${userImageUrl}`;
     userImagecontainer.appendChild(newImg)
-   
+
 
 }
 
@@ -195,7 +195,7 @@ function addCategory() {
     if (neuCategory.value) {
         database.ref('groups/' + currentGroup + '/category/' + id).set({
             category_name: neuCategory.value,
-            id:id
+            id: id
         })
         console.log("Neu Category Added")
         showCategoris()
@@ -239,16 +239,11 @@ document.getElementById("add-category-overlay").addEventListener('click', e => {
 
 
 
-function gotoLocation(url){
-   console.log(url)
-   window.location.href=url
-}
-
 
 
 const jsConfetti = new JSConfetti()
 
-function confettify(){
+function confettify() {
     jsConfetti.addConfetti()
 }
 

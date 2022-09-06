@@ -111,6 +111,7 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 .buttons-box button {
     background-color: rgb(229, 183, 98);
     height: 60px;
@@ -122,7 +123,7 @@ body {
 }
 
 .buttons-box a {
-   font-size: 1.3em;
+    font-size: 1.3em;
 }
 
 
@@ -289,11 +290,13 @@ select {
     border-radius: 10px;
     z-index: 100;
 }
-.successful-box h1{
+
+.successful-box h1 {
     position: absolute;
     top: 30%;
 }
-.successful-box button{
+
+.successful-box button {
     background-color: orange;
     margin: 10px;
     margin-bottom: 10%;
@@ -328,42 +331,42 @@ select {
 @media screen and (min-width: 1026px) {
     .form-container {
         max-width: unset;
-       max-width: 70%;
+        max-width: 70%;
     }
 
 
-.form-container input {
-    height: 60px;
-    width: 350px;
-    border-radius: 10px;
-}
+    .form-container input {
+        height: 60px;
+        width: 350px;
+        border-radius: 10px;
+    }
 
 
-.form-container select {
-    height: 60px;
-    width: 350px;
-    border-radius: 10px;
-}
+    .form-container select {
+        height: 60px;
+        width: 350px;
+        border-radius: 10px;
+    }
 
-.form-container p {
-    color: #1E3190;
-    font-weight: bold;
-    font-size: 1em;
-    margin-bottom: 20px;
-}
+    .form-container p {
+        color: #1E3190;
+        font-weight: bold;
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
 
-.urgency-radio {
-    display: flex;
-    align-items: center;
-    max-width: 400px;
-}
+    .urgency-radio {
+        display: flex;
+        align-items: center;
+        max-width: 400px;
+    }
 
-.urgency-radio input {
-    height: 30px;
-    width: 30px;
-    margin: 0px 10px;
+    .urgency-radio input {
+        height: 30px;
+        width: 30px;
+        margin: 0px 10px;
 
-}
+    }
 
 }
 
@@ -376,7 +379,7 @@ select {
     .form-container {
         margin-left: 0;
         margin-right: 0;
-        margin-top: 0;
+        margin-top: 0 !important;
     }
 
     .rows {
@@ -384,6 +387,10 @@ select {
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
+    }
+
+    .row3 {
+        flex-direction: column-reverse;
     }
 
     .rows>div {
@@ -414,6 +421,10 @@ select {
         margin-top: 1em;
     }
 
+    .urgency-box {
+        margin-top: 20px;
+    }
+
     .urgency-radio {
         display: flex;
         align-items: center;
@@ -438,22 +449,59 @@ select {
         width: 20px;
     }
 
-    .adding-links {
-        text-decoration: none;
-        margin-left: 0.5em;
-        font-size: 1em;
-        cursor: pointer;
-        margin-top: 10px;
-        margin-bottom: 0px !important;
 
+
+    .buttons-box {
+        padding-top: 20px;
+        gap: 5px;
+    }
+
+    .buttons-box button {
+        margin-left: unset;
+    }
+
+    /* OVERLAYS */
+    .add-user-container {
+        width: 90vw;
+    }
+
+    .upload-image-box {
+
+        width: 100px;
+        height: 100px;
+        border: black solid 2px;
     }
 
 
+    .material-symbols-outlined {
+        font-size: 2em;
+    }
+
+
+    .add-user-container input {
+        height: 6vh;
+        width: 60vw;
+    }
+
+    .user-overlay-buttons {
+        flex-direction: column;
+    }
+
+    .add-category-container {
+        height: 50vh;
+        width: 90vw;
+    }
+
+    .add-category-container input {
+        height: 6vh;
+        width: 60vw;
+
+    }
 }
 
 
 
-/* Height */
+/* Screen Heights */
 
 @media screen and (max-height: 700px) {
     .title {
