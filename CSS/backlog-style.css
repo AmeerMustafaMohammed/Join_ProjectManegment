@@ -4,6 +4,11 @@
     padding: 0;
 }
 
+body {
+
+    background-color: #e3e3e3;
+}
+
 #backlog-container {
     margin-left: 17%;
     margin-right: 3%;
@@ -27,9 +32,9 @@
 .backlog-title {
     display: flex;
     justify-content: space-between;
-    align-items:center ;
+    align-items: center;
     color: blue;
-    background-color: rgb(0, 0, 0,0.05);
+    background-color: rgb(0, 0, 0, 0.05);
     border-radius: 10px;
     min-height: 50px;
 }
@@ -105,40 +110,42 @@
     padding-bottom: 5px;
 }
 
-.backlog-row-second-child button{
+.backlog-row-second-child button {
     width: 100px;
     height: 40px;
     margin-top: 15px;
     margin-left: 5px;
-   
+
 }
 
 /* EDIT OVERLY */
 
-#edit-overlay{
+#edit-overlay {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgb(0, 0, 0,0.5);
+    background-color: rgb(0, 0, 0, 0.5);
     z-index: 99;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#edit-overlay input{
+#edit-overlay input {
     height: 50px;
     width: 80%;
 }
-.edit-container select{
-   
-     height: 50px;
-     width: 90%;
-    
+
+.edit-container select {
+
+    height: 50px;
+    width: 90%;
+
 }
-.edit-container{
+
+.edit-container {
     width: 60%;
     height: 60%;
     background-color: #F4F3FB;
@@ -146,34 +153,38 @@
     border-radius: 10px;
     display: flex;
 }
-.left-box{
+
+.left-box {
     display: flex;
     flex-direction: column;
-    width: 50%;
-    gap: 20px;
-}
-.right-box{
-    display: flex;
-    flex-direction: column;
-   
     width: 50%;
     gap: 20px;
 }
 
-.update-buttons{
+.right-box {
     display: flex;
-   padding-left: 10px;
+    flex-direction: column;
+
+    width: 50%;
+    gap: 20px;
+}
+
+.update-buttons {
+    display: flex;
+    padding-left: 10px;
     align-items: center;
     gap: 10px;
 }
-.update-buttons button{
+
+.update-buttons button {
     height: 50px;
     width: 100px;
     cursor: pointer;
     border-radius: 10px;
-    background-color:rgb(101, 101, 191);
+    background-color: rgb(101, 101, 191);
 }
-.display-none{
+
+.display-none {
     display: none;
 }
 
@@ -182,8 +193,8 @@
     display: flex !important;
     justify-content: center;
     align-items: center;
-  
-  
+
+
 }
 
 
@@ -192,7 +203,68 @@
     opacity: 0.5;
     font-size: 50px;
     font-family: 'Permanent Marker', cursive;
-    
+
+}
+
+@media screen and (max-width:1000px) {
+
+
+    #backlog-container {
+        margin-left: 3%;
+        margin-right: 3%;
+    }
 }
 
 
+@media screen and (max-width: 700px) {
+
+    .title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: unset;
+    }
+
+    .backlog-title {
+        display: none;
+    }
+
+    #backlog-tasks {
+        overflow-y: scroll;
+        height: unset;
+        padding: unset;
+    }
+
+    .backlog-content {
+        border: solid rgb(0, 0, 0, 0.5) 1px;
+    }
+
+    .backlog-row-firs-child {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .user-info {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .user-name-email {
+        margin-left: unset;
+        align-items: center;
+    }
+
+    .customBox {
+        width: unset !important;
+    }
+
+    .backlog-row-second-child {
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
