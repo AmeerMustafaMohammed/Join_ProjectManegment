@@ -1,12 +1,28 @@
-body{
-    background-color: rgb(0, 0, 0,0.1);
+body {
+    background-color: rgb(0, 0, 0, 0.1);
 }
+
 * {
     font-family: 'PT Sans', sans-serif;
     margin: 0;
     padding: 0;
 }
-.board-container{
+
+
+.title {
+    display: none;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    position: absolute;
+    top: 2%;
+    left: 0;
+    right: 0;
+
+}
+
+
+.board-container {
     margin-left: 15%;
     margin-right: auto;
     max-height: 75vh;
@@ -14,17 +30,19 @@ body{
     display: flex;
     justify-content: space-around;
     width: 80%;
-    height: 80vh ;
-    
+    height: 80vh;
+
 }
-.column{
-   
+
+.column {
+
     min-height: 400px;
     width: 20%;
     display: flex;
     flex-direction: column;
 }
-.column-title{
+
+.column-title {
     height: 10%;
     background-color: transparent;
     display: flex;
@@ -32,13 +50,13 @@ body{
     align-items: center;
 }
 
-.column-body{
+.column-body {
     height: 90%;
-   background-color: rgb(168, 168, 218);
+    background-color: rgb(168, 168, 218);
     overflow-y: auto;
 }
 
-.single-task{
+.single-task {
     background-color: rgb(17, 20, 18);
     padding: 20px;
     margin: 20px auto;
@@ -53,13 +71,40 @@ body{
     justify-content: center;
     align-items: center;
 }
-.delete-icon{
+
+.delete-icon {
     position: absolute !important;
     right: 1px;
     bottom: 1px;
     cursor: pointer;
 }
-.urgincy-light{
+
+
+#navigateStags {
+    display: none;
+    cursor: pointer;
+}
+
+#navigateStags p {
+    font-size: 2em;
+    color: rgb(0, 0, 0, 0.5);
+}
+
+.next-stage {
+
+    position: absolute;
+    right: -30px;
+    top: 40%;
+}
+
+.previous-stage {
+    position: absolute;
+    left: -30px;
+    top: 40%;
+
+}
+
+.urgincy-light {
     height: 20px;
     width: 20px;
     border-radius: 50%;
@@ -67,33 +112,83 @@ body{
     position: absolute;
     right: 1px;
     top: 1px;
-    
+
 }
 
 
-.todo > div{
+.todo>div {
     /* background-color: black; */
 }
 
-.inprogress .stage-light{
+.inprogress .stage-light {
     background-color: blue;
 }
 
-.testing .stage-light{
+.testing .stage-light {
     background-color: orange;
 }
 
-.done .stage-light{
+.done .stage-light {
     background-color: green;
 }
 
 
 /* MY CLASSES */
 
-.elementOver{
+.elementOver {
     opacity: 0.9;
 }
 
 
 /* SCOLLBAR */
 /* width */
+
+
+/* Mobile */
+@media screen and (max-width:1000px) {
+    .title {
+        display: flex;
+    }
+
+    .board-container {
+        margin-left: auto;
+        margin-right: auto;
+        max-height: unset;
+        margin-top: 15vh;
+        width: 98%;
+    }
+
+}
+
+@media screen and (max-width:800px) {
+    .board-container {
+        flex-direction: column;
+        height: unset;
+        gap: 10px;
+    }
+
+    .column {
+        width: 100%;
+        overflow-y: scroll;
+    }
+
+    .column-title {
+        height: 20%;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    .column-body {
+
+        min-height: 400px;
+        max-height: 50vh;
+    }
+
+    #navigateStags {
+        display: block;
+    }
+}

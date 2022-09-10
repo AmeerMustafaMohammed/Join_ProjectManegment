@@ -1,120 +1,166 @@
 console.log("BOARD JS")
 
-function init(){
-    showGrName()
-    cleanAllColumns();
-    showTasks()
+function init() {
+  showGrName()
+  cleanAllColumns();
+  showTasks()
 }
 
 
 
 
 
-async function showTasks(){
+async function showTasks() {
 
   //DB
-  let response = await   getGroupDataFromDB()
+  let response = await getGroupDataFromDB()
   let tasks = Object.values(response.tasks);
- 
+
   //SHOW TODO
-  let todoTasks = filterByStage(tasks,"todo")
+  let todoTasks = filterByStage(tasks, "todo")
   filterByUrgency(todoTasks)
-  gernarateTasks(todoTasks,"todo")
-  
+  gernarateTasks(todoTasks, "todo")
+
   //SHOW INPROGRESS
-  let inprogressTasks = filterByStage(tasks,"inprogress")
+  let inprogressTasks = filterByStage(tasks, "inprogress")
   filterByUrgency(inprogressTasks)
-  gernarateTasks(inprogressTasks,"inprogress")
+  gernarateTasks(inprogressTasks, "inprogress")
 
   //SHOW TESTING
-  let testingTasks = filterByStage(tasks,"testing")
+  let testingTasks = filterByStage(tasks, "testing")
   filterByUrgency(testingTasks)
-  gernarateTasks(testingTasks,"testing")
+  gernarateTasks(testingTasks, "testing")
 
   //SHOW DONE
-  let doneTasks = filterByStage(tasks,"done")
-  filterByUrgency(doneTasks) 
-  gernarateTasks(doneTasks,"done")
+  let doneTasks = filterByStage(tasks, "done")
+  filterByUrgency(doneTasks)
+  gernarateTasks(doneTasks, "done")
 
   //changing urgency light
 
 }
 
-function gernarateTasks(tasks,columName){
-  console.log(tasks)
-  for(let i=0;i<tasks.length;i++){
-    let boardColumn = document.querySelector(`.${columName}`)
+function gernarateTasks(tasks, columName) {
+  for (let i = 0; i < tasks.length; i++) {
+    let boardColumn = document.getElementById(columName)
     let title = tasks[i].title;
     let urgency = tasks[i].urgency;
-        boardColumn.innerHTML += 
-        `
-          <div class="single-task" draggable="true" id="${tasks[i].id}" ondragstart="rememberDragedItem(${tasks[i].id})">
+    let taskId = tasks[i].id
+    let stage = tasks[i].stage
+    boardColumn.innerHTML +=
+      `
+          <div class="single-task" draggable="true"   id="${taskId}" ondragstart="rememberDragedItem(${taskId})">
                <div>${title}</div>
-                <p class="material-symbols-outlined delete-icon" onclick="deleteItem(${tasks[i].id})">delete</p>
+                <p class="material-symbols-outlined delete-icon" onclick="deleteItem(${taskId})">delete</p>
                  <div class="urgincy-light" style="background-color:${UrgincyColor(urgency)};"></div>
-           </div>
-      
-    
+                 ${stageArrowGen(taskId, stage)}
+          </div>
+        
         `
   }
 }
 
-function UrgincyColor(urgency){
-  if(urgency == 2){
+/* changen stages only on mobile */
+
+function stageArrowGen(taskId, stage) {
+
+  let arrowHtmlText = `<div id="navigateStags">`
+  if (stage != "done") {
+    arrowHtmlText += `<p class="material-symbols-outlined next-stage" onclick="nextStage(${taskId},${stage})">navigate_next</p>`
+  }
+  if (stage != "todo") {
+
+    arrowHtmlText += `<p class="material-symbols-outlined previous-stage" onclick="previousStage(${taskId},${stage})">navigate_before</p>`
+  }
+  arrowHtmlText += `</div>`
+
+  return arrowHtmlText
+}
+
+function previousStage(id, stage) {
+  if (stage.id == "inprogress") {
+    changeStage(id, "todo")
+  }
+  else if (stage.id == "testing") {
+    changeStage(id, "inprogress")
+  }
+  else if (stage.id == "done") {
+    changeStage(id, "testing")
+  }
+  init()
+}
+
+function nextStage(id, stage) {
+  if (stage.id == "todo") {
+    changeStage(id, "inprogress")
+  }
+  else if (stage.id == "inprogress") {
+    changeStage(id, "testing")
+  }
+  else if (stage.id == "testing") {
+    changeStage(id, "done")
+  }
+  init()
+
+}
+
+
+function UrgincyColor(urgency) {
+  if (urgency == 2) {
     return "orange"
   }
-  if(urgency == 3){
+  if (urgency == 3) {
     return "green"
   }
 }
 
-function filterByStage(inputs,stage){
-return inputs.filter(input => input.stage == stage)
+function filterByStage(inputs, stage) {
+  return inputs.filter(input => input.stage == stage)
 }
 
- 
 
-function filterByUrgency(input){
-  input.sort(function (a, b){
-    if( a.urgency > b.urgency){
+
+function filterByUrgency(input) {
+  input.sort(function (a, b) {
+    if (a.urgency > b.urgency) {
       return 1;
-    }else{
+    } else {
       return -1;
     }
-});
-return input
+  });
+  return input
 }
 
 
 
 
-function cleanAllColumns(){
-    let allColumns = document.querySelectorAll(".column-body")
-    for(const column of allColumns ){
-        column.innerHTML = ""
-        }
+function cleanAllColumns() {
+  let allColumns = document.querySelectorAll(".column-body")
+  for (const column of allColumns) {
+    column.innerHTML = ""
+  }
 }
 
-function deleteItem(id){
-  changeStage(id,"trash")
+function deleteItem(id) {
+  changeStage(id, "trash")
   init()
 }
 
 
- const mycolumns = document.querySelectorAll('.column-body')
- 
- for(const mycolumn of mycolumns ){
-    
-// Need to for moving
- mycolumn.addEventListener('dragover', dragOver);
- mycolumn.addEventListener('drop', drop);
+const mycolumns = document.querySelectorAll('.column-body')
 
- //for styling
- mycolumn.addEventListener('dragenter', dragEnter);
- mycolumn.addEventListener('dragleave', dragLeave);
+for (const mycolumn of mycolumns) {
+
+  // Need to for moving
+  mycolumn.addEventListener('dragover', dragOver);
+  mycolumn.addEventListener('drop', drop);
+
+  //for styling
+  mycolumn.addEventListener('dragenter', dragEnter);
+  mycolumn.addEventListener('dragleave', dragLeave);
 
 
- }
+}
 
 
 
@@ -122,43 +168,44 @@ function deleteItem(id){
 
 let dragged;
 
-function rememberDragedItem(id){
-    dragged = id;
+function rememberDragedItem(id) {
+  dragged = id;
 }
 
- function dragOver(e){
-   e.preventDefault()
- }
- 
- 
- 
- function drop(){
-  let  targetedContainer = this.id
+function dragOver(e) {
+  e.preventDefault()
+}
+
+
+
+function drop() {
+  let targetedContainer = this.id
 
   let curentColumn = document.getElementById(this.id)
   curentColumn.classList.remove("elementOver")
-  
-  changeStage(dragged,targetedContainer)
+
+  changeStage(dragged, targetedContainer)
   init()
 
- }
+}
 
 
- function dragEnter(){
-   console.log(" dragEnter")
+function dragEnter() {
+  console.log(" dragEnter")
   let curentColumn = document.getElementById(this.id)
   curentColumn.classList.add("elementOver")
- 
- }
- 
- 
- function dragLeave(){
-    console.log(" dragLeave")
 
-   let curentColumn = document.getElementById(this.id)
+}
+
+
+function dragLeave() {
+  console.log(" dragLeave")
+
+  let curentColumn = document.getElementById(this.id)
   curentColumn.classList.remove("elementOver")
- 
 
- }
- 
- 
+
+}
+
+
+/* Responsive */

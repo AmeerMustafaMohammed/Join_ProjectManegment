@@ -23,7 +23,10 @@
 </head>
 
 <body onload="init()">
-    <div class="nav-bar">
+    <div id="navbar-icon" onclick="openNavbar()">
+        <h2>O</h2>
+    </div>
+    <div class="nav-bar" id="nav-bar">
         <h3 id="gr-name">Group Name</h3>
         <a href="./addTask.html">ADD_TASK</a>
         <a href="./backlog.html">BACKLOG</a>
@@ -36,6 +39,12 @@
     </div>
 
     <div class="board-container">
+
+
+        <div class="title">
+            <h2>KANBAN BOARD</h2>
+            <p>Learning Manegment System Project</p>
+        </div>
         <div class=" column">
             <div class="column-title">
                 TODO

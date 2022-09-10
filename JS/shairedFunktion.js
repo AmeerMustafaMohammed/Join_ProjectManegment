@@ -57,3 +57,9 @@ function gotoLocation(url) {
     console.log(url)
     window.location.href = url
 }
+
+
+function openNavbar() {
+    let navbarDiv = document.getElementById("nav-bar")
+    navbarDiv.style.display = "flex"
+}
