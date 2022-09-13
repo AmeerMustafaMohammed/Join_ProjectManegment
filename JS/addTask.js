@@ -1,8 +1,10 @@
 
 function init() {
+
     showGrName()
     showCategoris()
     showUsers()
+
 }
 
 /* **************************************  SHOWING ON FORM */
@@ -19,6 +21,7 @@ async function showCategoris() {
             <option value="${categories[i]["id"]}">${categories[i]["category_name"]}</option>
             `;
         }
+
     } catch (error) {
         console.log(error)
     }
@@ -40,6 +43,8 @@ async function showUsers() {
             `;
         }
         showUserImage()
+        stopPreloader()
+
     } catch (error) {
         console.log(error)
     }

@@ -8,6 +8,19 @@ body {
     padding: 0;
 }
 
+
+
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: unset;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+
 #big-container {
     margin-left: 300px;
     display: flex;
@@ -15,7 +28,7 @@ body {
 }
 
 .singel-task {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.692);
     color: white;
     min-width: 200px;
     min-height: 200px;
@@ -32,20 +45,38 @@ body {
 .singel-task h3 {
     padding: 0;
     margin: 0;
+    font-size: 2em;
 }
 
 .singel-task p {
     padding: 10px;
 }
 
-.material-symbols-outlined {
-    background-color: blue;
-    color: aliceblue;
-    padding: 0 !important;
-    margin: 0 !important;
+.task-icons {
+    background-color: transparent;
     position: absolute;
-    bottom: 2px;
+    bottom: 4px;
+    left: 2px;
     right: 2px;
-    border-radius: 50%;
-    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1000px) {
+
+    #big-container {
+        margin-left: 10%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    #big-container {
+        justify-content: center;
+        align-items: center;
+    }
 }

@@ -1,5 +1,6 @@
 
-
+preloaderMaker()
+let timeId = setInterval(preloaderMaker, 1100)
 
 function hideDiv(id) {
     let divId = document.getElementById(id)
@@ -62,4 +63,34 @@ function gotoLocation(url) {
 function openNavbar() {
     let navbarDiv = document.getElementById("nav-bar")
     navbarDiv.style.display = "flex"
+}
+function closeNavbar() {
+    let navbarDiv = document.getElementById("nav-bar")
+    navbarDiv.style.display = "none"
+}
+
+
+
+
+function preloaderMaker() {
+    let preloaderContent = document.getElementById("pre-loader-content")
+    console.log("Preloader")
+    changeContentTimer(200, "LOADING.", preloaderContent)
+    changeContentTimer(400, "LOADING..", preloaderContent)
+    changeContentTimer(600, "LOADING...", preloaderContent)
+    changeContentTimer(800, "LOADING....", preloaderContent)
+
+}
+
+
+function changeContentTimer(time, content, container) {
+    setTimeout(function () {
+        container.innerHTML = content;
+    }, time)
+}
+
+function stopPreloader() {
+    hideDiv("pre-loader")
+    clearInterval(timeId)
+    console.log("STOP preloader")
 }

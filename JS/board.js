@@ -1,9 +1,12 @@
+
 console.log("BOARD JS")
+
 
 function init() {
   showGrName()
   cleanAllColumns();
   showTasks()
+
 }
 
 
@@ -36,7 +39,7 @@ async function showTasks() {
   filterByUrgency(doneTasks)
   gernarateTasks(doneTasks, "done")
 
-  //changing urgency light
+  stopPreloader()
 
 }
 
@@ -57,8 +60,13 @@ function gernarateTasks(tasks, columName) {
           </div>
         
         `
+
+
   }
 }
+
+
+
 
 /* changen stages only on mobile */
 
@@ -66,11 +74,11 @@ function stageArrowGen(taskId, stage) {
 
   let arrowHtmlText = `<div id="navigateStags">`
   if (stage != "done") {
-    arrowHtmlText += `<p class="material-symbols-outlined next-stage" onclick="nextStage(${taskId},${stage})">navigate_next</p>`
+    arrowHtmlText += `<p class="material-symbols-outlined next-stage" onclick="nextStage(${taskId},'${stage}')">navigate_next</p>`
   }
   if (stage != "todo") {
 
-    arrowHtmlText += `<p class="material-symbols-outlined previous-stage" onclick="previousStage(${taskId},${stage})">navigate_before</p>`
+    arrowHtmlText += `<p class="material-symbols-outlined previous-stage" onclick="previousStage(${taskId},'${stage}')">navigate_before</p>`
   }
   arrowHtmlText += `</div>`
 
@@ -78,26 +86,27 @@ function stageArrowGen(taskId, stage) {
 }
 
 function previousStage(id, stage) {
-  if (stage.id == "inprogress") {
+
+  if (stage == "inprogress") {
     changeStage(id, "todo")
   }
-  else if (stage.id == "testing") {
+  else if (stage == "testing") {
     changeStage(id, "inprogress")
   }
-  else if (stage.id == "done") {
+  else if (stage == "done") {
     changeStage(id, "testing")
   }
   init()
 }
 
 function nextStage(id, stage) {
-  if (stage.id == "todo") {
+  if (stage == "todo") {
     changeStage(id, "inprogress")
   }
-  else if (stage.id == "inprogress") {
+  else if (stage == "inprogress") {
     changeStage(id, "testing")
   }
-  else if (stage.id == "testing") {
+  else if (stage == "testing") {
     changeStage(id, "done")
   }
   init()

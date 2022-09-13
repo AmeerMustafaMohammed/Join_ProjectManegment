@@ -25,7 +25,15 @@
 </head>
 
 <body onload="init()">
-    <div class="nav-bar">
+
+    <!-- OPEN_CLOSE_NAVBAR -->
+    <div id="navbar-icon" onclick="openNavbar()">
+        <span class="material-symbols-outlined">
+            arrow_forward_ios
+        </span>
+    </div>
+    <div class="nav-bar" id="nav-bar">
+        <img id="nav-close-btn" src="../img/cancel.png" alt="" onclick="closeNavbar()">
         <h3 id="gr-name">Group Name</h3>
         <a href="./addTask.html">ADD_TASK</a>
         <a href="./backlog.html">BACKLOG</a>
@@ -36,6 +44,7 @@
         <button class="logout-button" onclick="logout()">LOGOUT</button>
 
     </div>
+
 
 
     <div class="title">
@@ -108,6 +117,11 @@
 
     <!-- OVERLAYS -->
 
+    <div class="pre-loader" id="pre-loader">
+        <div class="pre-loader-content" id="pre-loader-content">
+            LOADING
+        </div>
+    </div>
     <!-- User -->
     <div id="add-user-overlay" class="display-none" name="overlay-background">
         <div class="add-user-container">

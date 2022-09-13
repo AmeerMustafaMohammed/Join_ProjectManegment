@@ -23,10 +23,15 @@
 </head>
 
 <body onload="init()">
+    <!-- OPEN_CLOSE_NAVBAR -->
     <div id="navbar-icon" onclick="openNavbar()">
-        <h2>O</h2>
+        <span class="material-symbols-outlined">
+            arrow_forward_ios
+        </span>
     </div>
     <div class="nav-bar" id="nav-bar">
+        <img id="nav-close-btn" src="../img/cancel.png" alt="" onclick="closeNavbar()">
+
         <h3 id="gr-name">Group Name</h3>
         <a href="./addTask.html">ADD_TASK</a>
         <a href="./backlog.html">BACKLOG</a>
@@ -39,7 +44,6 @@
     </div>
 
     <div class="board-container">
-
 
         <div class="title">
             <h2>KANBAN BOARD</h2>
@@ -79,7 +83,12 @@
         </div>
     </div>
 
-
+    <!-- OVERLAYS -->
+    <div class="pre-loader" id="pre-loader">
+        <div class="pre-loader-content" id="pre-loader-content">
+            LOADING
+        </div>
+    </div>
     <!-- SCRIPTS -->
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
