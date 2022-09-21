@@ -5,12 +5,14 @@ let timeId = setInterval(preloaderMaker, 1100)
 function hideDiv(id) {
     let divId = document.getElementById(id)
     divId.classList.add('display-none')
-
+    console.log("HIDE-DIV")
 }
 
 function showDiv(id) {
     let divId = document.getElementById(id)
     divId.classList.remove('display-none')
+    console.log("SHOW-DIV")
+
 }
 
 function makeOutlineRed(id) {
@@ -93,4 +95,10 @@ function stopPreloader() {
     hideDiv("pre-loader")
     clearInterval(timeId)
     console.log("STOP preloader")
+}
+
+
+function showEmptyOverlay() {
+    let emptyOverlay = document.getElementById("empty-overlay")
+    emptyOverlay.classList.remove("display-none")
 }

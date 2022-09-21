@@ -2,44 +2,53 @@
 console.log("BOARD JS")
 
 
-function init() {
+async function init() {
   showGrName()
   cleanAllColumns();
-  showTasks()
-
+  await showTasks()
+  checkEmptyBord()
 }
 
 
 
 
-
 async function showTasks() {
+  let tasks = await callTasksFromDB()
+  if (tasks) {
+    //SHOW TODO
+    let todoTasks = filterByStage(tasks, "todo")
+    filterByUrgency(todoTasks)
+    gernarateTasks(todoTasks, "todo")
 
-  //DB
+    //SHOW INPROGRESS
+    let inprogressTasks = filterByStage(tasks, "inprogress")
+    filterByUrgency(inprogressTasks)
+    gernarateTasks(inprogressTasks, "inprogress")
+
+    //SHOW TESTING
+    let testingTasks = filterByStage(tasks, "testing")
+    filterByUrgency(testingTasks)
+    gernarateTasks(testingTasks, "testing")
+
+    //SHOW DONE
+    let doneTasks = filterByStage(tasks, "done")
+    filterByUrgency(doneTasks)
+    gernarateTasks(doneTasks, "done")
+
+  }
+}
+
+async function callTasksFromDB() {
   let response = await getGroupDataFromDB()
-  let tasks = Object.values(response.tasks);
+  try {
+    let tasks = Object.values(response.tasks)
+    stopPreloader()
 
-  //SHOW TODO
-  let todoTasks = filterByStage(tasks, "todo")
-  filterByUrgency(todoTasks)
-  gernarateTasks(todoTasks, "todo")
-
-  //SHOW INPROGRESS
-  let inprogressTasks = filterByStage(tasks, "inprogress")
-  filterByUrgency(inprogressTasks)
-  gernarateTasks(inprogressTasks, "inprogress")
-
-  //SHOW TESTING
-  let testingTasks = filterByStage(tasks, "testing")
-  filterByUrgency(testingTasks)
-  gernarateTasks(testingTasks, "testing")
-
-  //SHOW DONE
-  let doneTasks = filterByStage(tasks, "done")
-  filterByUrgency(doneTasks)
-  gernarateTasks(doneTasks, "done")
-
-  stopPreloader()
+    return tasks;
+  } catch (error) {
+    showEmptyOverlay()
+    stopPreloader()
+  }
 
 }
 
@@ -218,3 +227,23 @@ function dragLeave() {
 
 
 /* Responsive */
+
+
+
+
+
+function checkEmptyBord() {
+  let boardColumns = document.querySelectorAll(".column-body")
+  let boardIsEmpty = true;
+  for (let i = 0; i < boardColumns.length; i++) {
+    let currentColumn = boardColumns[i]
+    if (currentColumn.childElementCount > 0) {
+      boardIsEmpty = false;
+      i = 5;
+    }
+  }
+  if (boardIsEmpty) {
+    console.log("board is empty", boardIsEmpty)
+    showEmptyOverlay()
+  }
+}

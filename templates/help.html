@@ -17,13 +17,13 @@
 
     <!-- LINKS -->
     <link rel="stylesheet" href="../CSS/shared-style.css">
-    <link rel="stylesheet" href="../CSS/trash-style.css">
-    <title>Trash</title>
+    <link rel="stylesheet" href="../CSS/help-style.css">
+    <title>Help</title>
 
 
 </head>
 
-<body onload="init()">
+<body>
 
     <!-- OPEN_CLOSE_NAVBAR -->
     <div id="navbar-icon" onclick="openNavbar()">
@@ -40,16 +40,40 @@
         <a href="./board.html">BOARD</a>
         <a href="./trash.html">TRASH</a>
         <a href="./help.html">HELP</a>
+
         <button class="logout-button" onclick="logout()">LOGOUT</button>
 
     </div>
     <div class="title">
-        <h2>KANBAN TRASH</h2>
+        <h2>HELP</h2>
         <p>Learning Manegment System Project</p>
     </div>
-    <div id="big-container">
-
+    <div class="pages-panal">
+        <a href="#" onclick="changePage('add-task')">#AddTask</a>
+        <a href="#" onclick="changePage('backlog')">#Backlog</a>
+        <a href="#" onclick="changePage('board')">#Board</a>
     </div>
+    <div id="big-container">
+        <div class="rows">
+            <div class="overlay"></div>
+
+            <div class="images">
+                <img id="image" src="../img/help1.png" alt="">
+            </div>
+            <div class="content" id="content">
+                <div id="list">
+                    <p>- Choose a meaningful title</p>
+                    <p>- Select a category</p>
+                    <p>- Describe the task shortly</p>
+                    <p>- Select the due date</p>
+                    <p>- How urgent is the task?</p>
+                    <p>- Assign the task to a member of your group</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 
     <!-- OVERLAYS -->
     <div class="pre-loader" id="pre-loader">
@@ -58,15 +82,12 @@
         </div>
     </div>
 
-    <div id="empty-overlay" class=" display-none">
-        <h3>NO TASKS FOUND</h3>
-    </div>
 
     <!-- SCRIPTS -->
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
     <script src="../databaseFire.js"></script>
     <script src="../JS/shairedFunktion.js"></script>
-    <script src="../JS/trash.js" defer></script>
+    <script src="../JS/help.js"></script>
 
 </html>

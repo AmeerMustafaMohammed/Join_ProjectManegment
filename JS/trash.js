@@ -1,23 +1,27 @@
-function init() {
-    console.log("Hier ist Trash file JS")
+async function init() {
     showGrName()
-    showTrash()
+    await showTrash()
+    checkEmptyTrash()
 
 }
 
 
 async function showTrash() {
-    let response = await getGroupDataFromDB()
-    let tasks = Object.values(response.tasks)
-    cleanScreen();
-    for (let i = 0; i < tasks.length; i++) {
-        let taskStage = tasks[i]["stage"]
-        if (taskStage == "trash") {
-            showTrashOnScreen(tasks[i])
+    try {
+        let response = await getGroupDataFromDB()
+        let tasks = Object.values(response.tasks)
+        cleanScreen();
+        for (let i = 0; i < tasks.length; i++) {
+            let taskStage = tasks[i]["stage"]
+            if (taskStage == "trash") {
+                showTrashOnScreen(tasks[i])
+            }
         }
+        stopPreloader()
+    } catch (error) {
+        console.log(error)
+        stopPreloader()
     }
-    stopPreloader()
-
 }
 
 function showTrashOnScreen(task) {
@@ -40,10 +44,18 @@ function showTrashOnScreen(task) {
 
 function restoreTask(id) {
     changeStage(id, "backlog")
-    showTrash()
+    init()
 }
 
 function cleanScreen() {
     let trashScreen = document.getElementById("big-container")
     trashScreen.innerHTML = "";
+}
+
+
+function checkEmptyTrash() {
+    let bigContainer = document.getElementById("big-container")
+    if (bigContainer.childElementCount == 0) {
+        showEmptyOverlay()
+    }
 }

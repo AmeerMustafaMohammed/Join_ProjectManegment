@@ -171,6 +171,10 @@ body {
     gap: 20px;
 }
 
+#description {
+    width: 80%;
+}
+
 .update-buttons {
     display: flex;
     padding-left: 10px;
@@ -214,6 +218,14 @@ body {
     #backlog-container {
         margin-left: 3%;
         margin-right: 3%;
+    }
+}
+
+
+@media screen and (max-width:900px) {
+
+    .edit-container {
+        width: 80%;
     }
 }
 
@@ -269,4 +281,68 @@ body {
         align-items: center;
     }
 
+    /* EDIT Overly */
+    #edit-overlay {
+        position: fixed;
+    }
+
+    .edit-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 80%;
+        gap: 20px;
+        overflow-y: auto;
+    }
+
+    .left-box {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .right-box {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #description {
+        width: unset;
+    }
+
+    #edit-overlay input {
+        height: 32px;
+        width: 90%;
+    }
+
+    #edit-overlay select {
+        height: 32px;
+        width: 90%;
+
+    }
+
+    #edit-overlay textarea {
+        height: 32px;
+        width: 90%;
+    }
+}
+
+
+@media screen and (max-height: 700px) {
+
+    .edit-container {
+        height: 80%;
+        gap: 5px;
+        overflow-y: scroll;
+    }
+
+    .left-box {
+        gap: 5px;
+    }
+
+    .right-box {
+        gap: 5px;
+
+    }
 }

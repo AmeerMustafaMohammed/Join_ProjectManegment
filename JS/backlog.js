@@ -33,6 +33,7 @@ async function showTasksOnScreen() {
         stopPreloader()
     } catch (error) {
         console.log(error)
+        checkEmpityBackog()
     }
 
 }
@@ -52,6 +53,7 @@ function checkEmpityBackog() {
         `
         backlogContainer.appendChild(newDiv)
         backlogContainer.classList.add("empty-backlog")
+        stopPreloader()
     }
 }
 

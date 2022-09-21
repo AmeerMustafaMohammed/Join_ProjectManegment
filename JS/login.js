@@ -1,4 +1,8 @@
 
+
+function init() {
+    stopPreloader()
+}
 // makeing new group
 async function saveGr() {
     let grName = document.getElementById("new-group-name").value
@@ -100,7 +104,7 @@ function checkForInput(groupName, groupInput) {
 
 function demoLogin() {
     saveArrayInLS("currentGroup", "DEMO")
-    window.location = "./templates/addTask.html"
+    window.location = "./addTask.html"
 }
 
 
@@ -109,16 +113,6 @@ function showLoginError() {
     loginError.classList.remove("display-none");
 }
 
-
-function hideDiv(id) {
-    let divId = document.querySelector(id)
-    divId.style.display = "none"
-}
-
-function showDiv(id) {
-    let divId = document.querySelector(id);
-    divId.style.display = "flex"
-}
 
 
 
@@ -129,6 +123,8 @@ function saveArrayInLS(key, arrayInput) {
     let arrayAsString = JSON.stringify(arrayInput);
     localStorage.setItem(key, arrayAsString)
 }
+
+
 
 
 

@@ -6,7 +6,7 @@ body {
 
 .login-container {
     background-color: #F7F7F7;
-    min-width: 30%;
+    min-width: 40%;
     min-height: 50vh;
     /* CENTER THE FORM */
     position: absolute;
@@ -37,7 +37,7 @@ body {
 }
 
 .group-register {
-    display: none;
+    display: flex;
 }
 
 .demo {
@@ -64,10 +64,30 @@ body {
     background-color: #FFFFFF;
 }
 
-.display-none{
+.display-none {
     display: none;
 }
 
-#login-error{
+#login-error {
     color: red;
+}
+
+
+@media screen and (max-width: 900px) {
+    .login-container {
+        min-width: 60%;
+    }
+}
+
+
+@media screen and (max-width: 750px) {
+    .login-container {
+        min-width: 80%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .login-container {
+        min-width: 90vw;
+    }
 }

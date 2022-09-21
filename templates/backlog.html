@@ -24,7 +24,7 @@
 
 </head>
 
-<body onload="init()">
+<body onload="init();preloaderMaker()">
 
 
 
@@ -42,7 +42,7 @@
         <a href="./backlog.html">BACKLOG</a>
         <a href="./board.html">BOARD</a>
         <a href="./trash.html">TRASH</a>
-        <a href="#">HELP</a>
+        <a href="./help.html">HELP</a>
 
         <button class="logout-button" onclick="logout()">LOGOUT</button>
 
@@ -91,7 +91,7 @@
                 <input type="date" name="date" id="date">
                 <!-- discription -->
                 <label for="description">DISCRIPTION</label>
-                <textarea name="description" id="description" cols="30" rows="10" style="width: 300px;"></textarea>
+                <textarea name="description" id="description" cols="30" rows="10"></textarea>
 
             </div>
             <div class="right-box">

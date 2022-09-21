@@ -32,7 +32,6 @@ function getGroupDataFromDB() {
 
             response.on('value', function (snapshot) {
                 let data = snapshot.val();
-                let lastData = Object.values(data)
                 res(data)
             })
         }
