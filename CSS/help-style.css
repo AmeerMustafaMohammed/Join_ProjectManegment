@@ -90,9 +90,37 @@ body {
     justify-content: center;
     align-items: center;
     gap: 8px;
+    text-align: center;
 }
 
-@media screen and (max-width: 1000px) {}
+@media screen and (max-width: 1000px) {
+    #big-container {
+        margin-left: 25px;
+        margin-right: 25px;
+        height: 80vh;
+        padding: 0;
+        overflow-y: hidden;
+        gap: 20px;
+    }
+}
 
 
-@media screen and (max-width: 500px) {}
+@media screen and (max-width: 650px) {
+    #big-container {
+        margin-left: 5px;
+        margin-right: 5px;
+        height: 80vh;
+        padding: 0;
+        overflow-y: hidden;
+        gap: 20px;
+    }
+
+    #list {
+        font-size: 1.5em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+}

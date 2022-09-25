@@ -5,20 +5,21 @@ function init() {
     showTasksOnScreen()
 
 }
+
+
 let nummberOfBacklogtasks = 0;
 function cleanBacklog() {
     let backlogTasks = document.getElementById("backlog-tasks")
     backlogTasks.innerHTML = ""
 }
-async function showTasksOnScreen() {
 
+
+async function showTasksOnScreen() {
     let response = await getGroupDataFromDB()
     try {
-
         let tasks = Object.values(response.tasks)
         let users = response.users
         let categories = response.category
-
         for (let i = (tasks.length - 1); i >= 0; i--) {
             if (tasks[i]["stage"] == "backlog") {
                 nummberOfBacklogtasks++;
@@ -27,7 +28,6 @@ async function showTasksOnScreen() {
                 htmlText.textContent += genarateBacklogHtml(categories[tasks[i]["category"]]["category_name"], tasks[i]["description"], tasks[i]["id"])
                 appendToBacklog(htmlText.innerText)
             }
-
         }
         checkEmpityBackog()
         stopPreloader()
@@ -35,7 +35,6 @@ async function showTasksOnScreen() {
         console.log(error)
         checkEmpityBackog()
     }
-
 }
 
 
@@ -43,13 +42,9 @@ function checkEmpityBackog() {
     if (nummberOfBacklogtasks < 1) {
         console.log("No Task Found")
         let backlogContainer = document.getElementById("backlog-tasks");
-
         let newDiv = document.createElement("div")
-
         newDiv.innerHTML = `
-        
         <h2>NO TASKS FOUND</h2>
-      
         `
         backlogContainer.appendChild(newDiv)
         backlogContainer.classList.add("empty-backlog")
@@ -58,7 +53,6 @@ function checkEmpityBackog() {
 }
 
 function appendToBacklog(htmlTaxt) {
-
     let backlogTasks = document.getElementById("backlog-tasks")
     let myDiv = document.createElement("div")
     myDiv.innerHTML = `${htmlTaxt}`
@@ -80,22 +74,17 @@ function genarateUserHtml(userId, users) {
             <p id="user-email">${userEmail}</p>
         </div>
     </div>
-  
-    
 `;
-
     return htmlText
 }
 
 function genarateBacklogHtml(category, description, id) {
     let htmlText = `   
                 <!--second  box  -->
-
                 <div class="category customBox">
                     <p>${category}</p>
                 </div>
                 <!--third  box  -->
-
                 <div class="ditails customBox">
                     <p>${description}</p>
                 </div>
@@ -105,9 +94,7 @@ function genarateBacklogHtml(category, description, id) {
                 <button onclick="editTask(${id})">EDIT</button>
             </div>
     `;
-
     return htmlText
-
 }
 
 

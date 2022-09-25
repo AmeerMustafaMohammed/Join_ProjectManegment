@@ -5,13 +5,19 @@ let timeId = setInterval(preloaderMaker, 1100)
 function hideDiv(id) {
     let divId = document.getElementById(id)
     divId.classList.add('display-none')
-    console.log("HIDE-DIV")
+    console.log("HIDE-DIV ", id)
 }
 
 function showDiv(id) {
     let divId = document.getElementById(id)
     divId.classList.remove('display-none')
-    console.log("SHOW-DIV")
+    console.log("SHOW-DIV", id)
+
+}
+function removeClassList(id, clssList) {
+    let divId = document.getElementById(id)
+    divId.classList.remove(clssList)
+    console.log("Class List Removed ", clssList)
 
 }
 
@@ -54,6 +60,7 @@ function deleteArrayInLS(key) {
     localStorage.removeItem(key);
 
 }
+
 
 
 function gotoLocation(url) {

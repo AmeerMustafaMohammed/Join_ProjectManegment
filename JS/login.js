@@ -2,6 +2,7 @@
 
 function init() {
     stopPreloader()
+    manageWarinigOverlay()
 }
 // makeing new group
 async function saveGr() {
@@ -128,3 +129,39 @@ function saveArrayInLS(key, arrayInput) {
 
 
 
+
+function manageWarinigOverlay() {
+    if (!localStorage.getItem("isWarned")) {
+        let warningBox = document.getElementById("warning-overlay")
+        let progressBar = document.querySelector(".progress-bar")
+        showWarningOverlay(warningBox)
+        hideWarnigOerlay(warningBox)
+        startProgressbar(progressBar)
+
+    }
+}
+
+function warningUnderstod() {
+    saveArrayInLS("isWarned", true)
+    removeClassList("warning-overlay", "animated-warning-overlay")
+}
+
+
+function showWarningOverlay(warningBox) {
+    warningBox.classList.add("animated-warning-overlay")
+    console.log("overly Showed")
+}
+function hideWarnigOerlay(warningBox) {
+    setTimeout(function () {
+        warningBox.style.animation = "hide-the-slide 2s cubic-bezier(0.21,-0.95, 0.58, 1) forwards"
+        console.log("warning-removed")
+    }, 9800)
+}
+function startProgressbar(progressBar) {
+    for (let i = 2; i < 98; i++) {
+        setTimeout(function () {
+            progressBar.style.width = `${i}%`
+        }, 100 * i)
+
+    }
+}

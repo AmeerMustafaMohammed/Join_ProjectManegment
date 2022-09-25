@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="../CSS/shared-style.css">
     <link rel="stylesheet" href="../CSS/login.css">
 
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
 
 
 
@@ -45,7 +50,22 @@
         </div>
     </div>
 
+    <!-- OVERLAYS -->
 
+    <div id="warning-overlay">
+        <h1>Disclaimer</h1>
+        <div class="progress-bar-container">
+            <div class="progress-bar">
+
+            </div>
+        </div>
+        <p>
+            <b>Warning</b>
+            Diese Website wurde zum Lernen erstellt. Back-End-Sicherheit wird nicht berücksichtigt. Bitte geben Sie
+            keine wichtigen Informationen ein.
+        </p>
+        <button onclick="warningUnderstod()" class="agree-btn">Agree</button>
+    </div>
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
     <script src="../databaseFire.js"></script>
