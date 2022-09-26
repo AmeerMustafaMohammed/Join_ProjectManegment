@@ -86,7 +86,6 @@ function saveTaskInDB() {
             stage: "backlog"
 
         })
-        console.log("Added")
         successfullOverlay()
     }
 }
@@ -103,7 +102,6 @@ function getTaskAttributs() {
     let i = 0;
     while (i < myDivs.length) {
         let value = getDivbyId(myDivs[i]);
-        console.log(value)
         if (value) {
             removeRedOutline(myDivs[i])
             allAtributs[myDivs[i]] = value;
@@ -115,7 +113,6 @@ function getTaskAttributs() {
             break;
         }
     }
-    console.log(allAtributs)
     return allAtributs;
 }
 
@@ -131,12 +128,13 @@ function getDivbyId(id) {
 // adding neu User to the Database
 async function addUser() {
     let userName = document.getElementById("user-name");
+    let userEmail = document.getElementById("user-email")
     let randomId = idGenerator();
     if (userName.value) {
         database.ref('groups/' + currentGroup + '/users/' + randomId).set({
             userId: randomId,
             userName: userName.value,
-            userEmail: 'ex@web.de',
+            userEmail: userEmail.value,
             userPhoto: await uploadUserPhoto()
         })
         showUsers()
@@ -147,6 +145,7 @@ async function addUser() {
     }
 }
 
+
 function cleanUserOverlay() {
     removeRedOutline("user-name")
     let addUserLable = document.getElementById("user_image_lable")
@@ -155,34 +154,30 @@ function cleanUserOverlay() {
     addUserLable.style.backgroundImage = "";
     usernameInput.value = "";
 }
+
 /* ADDING USER PHOTO */
 
 async function uploadUserPhoto() {
     let imageInput = document.getElementById("user_image_input")
     if (imageInput.value) {
-
         return new Promise((res, rej) => {
             const reader = new FileReader();
             reader.addEventListener("load", () => {
                 if (reader.result) {
                     res(reader.result)
                 }
-
             })
             reader.readAsDataURL(imageInput.files[0])
-
         })
     }
     else {
         return "../img/anonymous.png"
     }
-
 }
 
 
 
 function previewUserimage() {
-
     let imageInput = document.getElementById("user_image_input")
     let userimageLable = document.getElementById("user_image_lable")
     let reader = new FileReader()
@@ -202,7 +197,6 @@ function addCategory() {
             category_name: neuCategory.value,
             id: id
         })
-        console.log("Neu Category Added")
         showCategoris()
         hideDiv("add-category-overlay")
     }
@@ -251,14 +245,3 @@ const jsConfetti = new JSConfetti()
 function confettify() {
     jsConfetti.addConfetti()
 }
-
-/* 
-
-console.log(title)
-console.log(date)
-console.log(category)
-console.log(urgency)
-console.log(description)
-console.log(asigento)
-
-*/

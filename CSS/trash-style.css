@@ -62,6 +62,11 @@ body {
     justify-content: center;
 }
 
+.delete-icon,
+.restore-icon {
+    cursor: pointer;
+}
+
 @media screen and (max-width: 1000px) {
 
     #big-container {
@@ -76,7 +81,10 @@ body {
 
 @media screen and (max-width: 500px) {
     #big-container {
+        margin-left: unset;
         justify-content: center;
         align-items: center;
     }
+
+
 }

@@ -88,6 +88,7 @@ body {
     display: none;
     color: white;
     font-family: 'PT Sans';
+    padding-bottom: 45px;
 
 }
 
@@ -115,6 +116,7 @@ body {
     font-size: 1.5em;
     text-align: center;
     padding: 5px;
+
 
 }
 

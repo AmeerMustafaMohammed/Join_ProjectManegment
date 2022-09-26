@@ -43,13 +43,11 @@ async function callTasksFromDB() {
   try {
     let tasks = Object.values(response.tasks)
     stopPreloader()
-
     return tasks;
   } catch (error) {
     showEmptyOverlay()
     stopPreloader()
   }
-
 }
 
 function gernarateTasks(tasks, columName) {
@@ -77,7 +75,7 @@ function gernarateTasks(tasks, columName) {
 
 
 
-/* changen stages only on mobile */
+/* change stages only on mobile */
 
 function stageArrowGen(taskId, stage) {
 

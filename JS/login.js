@@ -1,26 +1,20 @@
 
-
 function init() {
     stopPreloader()
-    manageWarinigOverlay()
+    warinigOverlay()
 }
-// makeing new group
+
+
+// registering new group
 async function saveGr() {
     let grName = document.getElementById("new-group-name").value
     let grPasscode = document.getElementById("new-group-passcode").value
-    saveGrName(grName)
-    saveGrPasscode(grPasscode, grName)
-    saveDefaultUser(grName)
-    saveDefaultcategories(grName)
-    changePageCountdoun("./index.html")
-}
+    await saveGrName(grName)
+    await saveGrPasscode(grPasscode, grName)
+    await saveDefaultUser(grName)
+    await saveDefaultcategories(grName)
+    window.location = "./index.html"
 
-
-function changePageCountdoun(page) {
-    setTimeout(function () {
-        window.location = page;
-
-    }, 1000)
 }
 
 
@@ -37,7 +31,6 @@ async function saveGrPasscode(grPasscode, grName) {
 }
 
 async function saveDefaultUser(grName) {
-    console.log("SaveUser")
     await database.ref('groups/' + grName + "/users/" + "0").set({
         userId: "0",
         userName: "Anonymous",
@@ -66,18 +59,28 @@ async function saveDefaultcategories(grName) {
 function login() {
     let groupName = document.getElementById('group-login-name');
     let groupPasscode = document.getElementById('group-login-passcode');
-    imputIsEmpty = checkForInput(groupName.value, groupPasscode.value);
-    if (!imputIsEmpty) {
+    isvalid = validationCheck('group-login-name') && validationCheck('group-login-passcode')
+    if (isvalid) {
         authorization(groupName.value, groupPasscode.value)
     }
 }
 
+//checing input felds
+function validationCheck(inputId) {
+    let inputValue = document.getElementById(inputId).value
+    removeRedOutline(inputId)
+    if (!inputValue) {
+        makeOutlineRed(inputId)
+        return false;
+    }
+    return true;
+}
+
+
 async function authorization(groupName, groupPasscode) {
     let response = await database.ref('groups/' + groupName)
-
     response.on('value', function (snapshot) {
         let data = snapshot.val();
-
         if (data && data.passcode == groupPasscode) {
             saveArrayInLS("currentGroup", groupName)
             gotoLocation("addTask.html")
@@ -87,20 +90,7 @@ async function authorization(groupName, groupPasscode) {
         }
     })
 }
-function checkForInput(groupName, groupInput) {
-    removeRedOutline('group-login-name')
-    removeRedOutline('group-login-passcode')
-    let inputIsEmpety = false;
-    if (!groupName) {
-        makeOutlineRed('group-login-name')
-        inputIsEmpety = true;
-    }
-    if (!groupInput) {
-        makeOutlineRed('group-login-passcode')
-        inputIsEmpety = true;
-    }
-    return inputIsEmpety;
-}
+
 
 
 function demoLogin() {
@@ -130,7 +120,7 @@ function saveArrayInLS(key, arrayInput) {
 
 
 
-function manageWarinigOverlay() {
+function warinigOverlay() {
     if (!localStorage.getItem("isWarned")) {
         let warningBox = document.getElementById("warning-overlay")
         let progressBar = document.querySelector(".progress-bar")

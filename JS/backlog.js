@@ -40,7 +40,6 @@ async function showTasksOnScreen() {
 
 function checkEmpityBackog() {
     if (nummberOfBacklogtasks < 1) {
-        console.log("No Task Found")
         let backlogContainer = document.getElementById("backlog-tasks");
         let newDiv = document.createElement("div")
         newDiv.innerHTML = `
@@ -104,36 +103,18 @@ let editedTaskId;
 async function editTask(taskId) {
     editedTaskId = taskId;
     let response = await getGroupDataFromDB()
-    let categoryId = response.tasks[taskId]["category"]
-    let userId = response.tasks[taskId]["assigento"]
-    let currentDate = response.tasks[taskId]["date"]
-    let currentTitle = response.tasks[taskId]["title"]
-    let currentDesciption = response.tasks[taskId]["description"]
-    let currentUrgency = response.tasks[taskId]["urgency"]
     showDiv("edit-overlay")
     await showCategoriesInEdit()
     await showUsersInEdit()
-    replaceCurrentData(categoryId, userId, currentTitle, currentDate, currentDesciption, currentUrgency)
-
+    let attributes = ["title", "date", "description", "category", "assigento", "urgency"]
+    for (let i = 0; i < attributes.length; i++) {
+        let attributeBox = document.getElementById(attributes[i])
+        attributeBox.value = response.tasks[taskId][attributes[i]]
+    }
 }
 
-function replaceCurrentData(categoryId, userId, currentTitle, currentDate, currentDesciption, currentUrgency) {
-    let titleInput = document.getElementById("title")
-    let dateInput = document.getElementById("date")
-    let discriptionBox = document.getElementById("description")
-    let categorySelect = document.getElementById("category")
-    let userSelect = document.getElementById("user")
-    let urgency = document.getElementById("urgency")
-
-    titleInput.value = currentTitle
-    dateInput.value = currentDate
-    discriptionBox.innerHTML = currentDesciption
-    categorySelect.value = categoryId
-    urgency.value = currentUrgency
-    userSelect.value = userId
-
-}
 // Shows All exesting categories in category selection
+
 async function showCategoriesInEdit() {
     try {
         let response = await getGroupDataFromDB()
@@ -158,7 +139,7 @@ async function showCategoriesInEdit() {
 async function showUsersInEdit(userId) {
     let response = await getGroupDataFromDB()
     let users = Object.values(response.users)
-    let userSelect = document.getElementById("user")
+    let userSelect = document.getElementById("assigento")
 
     userSelect.innerHTML = "";
     for (let i = 0; i < users.length; i++) {
@@ -168,28 +149,31 @@ async function showUsersInEdit(userId) {
         `;
     }
 
+
 }
 
 function saveEditedTask() {
-    let titleInput = document.getElementById("title")
-    let dateInput = document.getElementById("date")
-    let descriptionBox = document.getElementById("description")
-    let categorySelect = document.getElementById("category")
-    let userSelect = document.getElementById("user")
-    let urgency = document.getElementById("urgency")
-
     database.ref('groups/' + currentGroup + '/tasks/' + editedTaskId).update({
-        title: titleInput.value,
-        date: dateInput.value,
-        category: categorySelect.value,
-        urgency: urgency.value,
-        description: descriptionBox.value,
-        assigento: userSelect.value,
+        title: getEditAttributs().title,
+        date: getEditAttributs().date,
+        category: getEditAttributs().category,
+        urgency: getEditAttributs().urgency,
+        description: getEditAttributs().description,
+        assigento: getEditAttributs().assigento
 
     })
-    console.log("updated")
-
     location.reload();
+}
+
+
+function getEditAttributs() {
+    let attributes = ["title", "date", "description", "category", "assigento", "urgency"]
+    let valueOfAttributs = {};
+    for (let i = 0; i < attributes.length; i++) {
+        let inputValue = document.getElementById(attributes[i]).value
+        valueOfAttributs[attributes[i]] = inputValue;
+    }
+    return valueOfAttributs;
 }
 
 function pinTask(id) {
